@@ -43,6 +43,12 @@ module ApplicationHelper
     ret
   end
 
+  def error_message_on(model, field)
+    content_tag(:span, :class=>"errorMessage") do
+      model.errors[field].join("<br/>")
+    end.html_safe
+  end
+
   def restripe(table_id)
     <<-EOF
         

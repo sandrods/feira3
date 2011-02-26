@@ -2,9 +2,7 @@
 	<h1><strong>Edição de Produto</strong></h1>
 <% end %>
 
-<%= error_messages_for :produto %>
-
-<% form_for(:produto, :url => resource_url, :html => { :method => :put }) do |f| %>
+<%= form_for(:produto, :url => resource_url, :html => { :method => :put }) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
 
 	<div class="buttons clear">

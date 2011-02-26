@@ -5,19 +5,19 @@
     <div class="t5">
     <%= f.label :colecao_id, "Coleção" %>
     <%= f.select :colecao_id, Colecao.to_select, { :include_blank => true }, :class=>'t5' %>
-    <%= test_error_message_on 'produto', 'colecao_id' %>
+    <%= error_message_on @produto, :colecao_id %>
     </div>
 
     <div class="t8">
     <%= f.label :fornecedor_id, "Fornecedor" %>
     <%= f.select :fornecedor_id, Fornecedor.to_select, { :include_blank => true }, :class=>'t8 bold' %>
-    <%= test_error_message_on 'produto', 'fornecedor_id' %>
+    <%= error_message_on @produto, 'fornecedor_id' %>
     </div>
 
     <div class="t11">
     <%= f.label :linha_id, "Linha" %>
     <%= f.select :linha_id, Linha.to_select, { :include_blank => true }, :class=>'t5' %>
-    <%= test_error_message_on 'produto', 'linha_id' %>
+    <%= error_message_on @produto, 'linha_id' %>
     </div>
 
   </div>
@@ -26,25 +26,25 @@
     <div class="t5">
     <%= f.label :tipo_id, "Tipo" %>
     <%= f.select :tipo_id, Tipo.to_select, { :include_blank => true }, :class=>'t5' %>
-    <%= test_error_message_on 'produto', 'tipo_id' %>
+    <%= error_message_on @produto, 'tipo_id' %>
     </div>
 
     <div class="t8">
     <%= f.label :ref, "Referência" %>
     <%= f.text_field :ref, :class=>'t8 bold' %>
-    <%= test_error_message_on 'produto', 'ref' %>
+    <%= error_message_on @produto, 'ref' %>
     </div>
 
     <div class="t3">
     <%= f.label :custo %>
     <%= f.currency_field :custo, :class=>'t3' %>
-    <%= test_error_message_on 'produto', 'custo' %>
+    <%= error_message_on @produto, 'custo' %>
     </div>
 
     <div class="t3">
     <%= f.label :valor, "Valor de Venda" %>
     <%= f.currency_field :valor, :class=>'t3' %>
-    <%= test_error_message_on 'produto', 'valor' %>
+    <%= error_message_on @produto, 'valor' %>
     </div>
 
     <div class="t5">

@@ -7,6 +7,8 @@ class Produto < ActiveRecord::Base
   
   has_many :itens
 
+  validates :colecao_id, :linha_id, :fornecedor_id, :tipo_id, :ref, :presence => true
+
   acts_as_br_currency :custo, :valor
   
   def Produto.rentabilidade(_valor, _custo)
@@ -18,7 +20,7 @@ class Produto < ActiveRecord::Base
     valor1-custo1 rescue nil
   end
   
-  def before_save
+  before_save do
     self.lucro = Produto.lucro(self.valor, self.custo)
     self.rentabilidade = Produto.rentabilidade(self.valor, self.custo)
   end
