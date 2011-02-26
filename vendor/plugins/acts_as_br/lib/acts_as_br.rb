@@ -75,7 +75,7 @@ module ActsAsBr
     end # - acts_as...
     
     def currency_to_number(value)
-      value.gsub(".", "").gsub(",", ".").to_f rescue nil
+      value.gsub(/[a-z]/i, "").gsub("$", "").gsub(".", "").gsub(",", ".").to_f rescue nil
     end
 
   end # module ClassMethods
