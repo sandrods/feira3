@@ -14,6 +14,7 @@ module AutoCompleteJqueryHelpers
   def ac_assets(include_jquery = false)
     ret = include_jquery ? javascript_include_tag("jquery") : ""
     ret << javascript_include_tag("jquery.autocomplete") + stylesheet_link_tag('jquery.autocomplete')
+    ret.html_safe
   end
 
   def ac_field_tag(name, tag_options = {})

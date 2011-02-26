@@ -10,7 +10,8 @@ module FormHelper
       });
       </script>
     JS
-    out << js
+    out << js.html_safe
+    out
   end
 
   def date_field(object, method, options={})
@@ -23,7 +24,8 @@ module FormHelper
       });
       </script>
     JS
-    out << js
+    out << js.html_safe
+    out
   end
 
   def date_label(object, method, text=nil, options={})
@@ -40,7 +42,8 @@ module FormHelper
       });
       </script>
     JS
-    out << js
+    out << js.html_safe
+    out
   end
 
   def masked_field_tag(name, value, options={})
@@ -54,7 +57,8 @@ module FormHelper
       });
       </script>
     JS
-    out << js
+    out << js.html_safe
+    out
   end
 
   def currency_field(object, method, options={})
@@ -67,12 +71,11 @@ module FormHelper
 
     js =<<-JS
       \n<script type="text/javascript" charset="utf-8">
-      jQuery(function($){
          $("##{object}_#{method}_to_form").priceFormat(#{js_opts});
-      });
       </script>
     JS
-    out << js
+    out << js.html_safe
+    out
   end
 
   def float_field(object, method, options={})
