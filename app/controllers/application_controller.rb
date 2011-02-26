@@ -7,9 +7,6 @@ class ApplicationController < ActionController::Base
 
   helper :all # include all helpers, all the time
 
-  # Scrub sensitive parameters from your log
-  filter_parameter_logging :password
-
   # before_filter :authenticate, :except => [:logout, :login]
 
   
