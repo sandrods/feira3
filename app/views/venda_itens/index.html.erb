@@ -1,0 +1,111 @@
+<%= render :partial => "/layouts/barcode" %>
+
+<% content_for :title do %>
+	<h1><strong><%= @venda.cliente? ? "Venda para Cliente" : "Venda Comissionada" %></strong></h1>
+<% end %>
+
+<div id="div_header">
+<%= render :partial => "/vendas/header" %>
+</div>
+
+<% form_remote_tag(:url=>venda_itens_url(@venda)) do %>
+	<%= text_field_tag :barcode, nil, :maxlength => 10, :class=>'barcode' %>
+<%- end -%>
+
+<br/>
+
+<div class='t15 colborder'>
+	<h3>Produtos</h3>
+	<table class="lista small" cellpadding="0" cellspacing="0" width="100%">
+	  <tr>
+		<th width='80px'>Ref.</th>
+		<th>Produto</th>
+		<th width='100px'>Cor.</th>
+		<th width='40px' class='center'>Tam.</th>
+		<th width='70px' class='right'>Valor</th>
+		<th width='30px'>&nbsp;</th>
+	  </tr>
+	  <tbody id='lista_itens'>
+		<%= render :partial => 'item', :collection => @itens %>
+	  </tbody>
+	  <tfoot id='totais_tr'>
+	  	<%= render :partial => 'totais_tr' %>
+	  </tfoot>
+	</table>
+<br/>
+</div>
+
+<div class='t8'>
+
+	<h3>Pagamentos</h3>
+	<table class="lista small" cellpadding="0" cellspacing="0" width="100%">
+	  <tr>
+		<th width='70px' class='center'>Data</th>
+		<th class='right'>Valor</th>
+		<th width='70px'>Conta</th>
+		<th width='20px'>&nbsp;</th>
+	  </tr>
+	  <tbody id='pag_itens'>
+		<tr>
+			<td class="center">12/04/2010</td>
+			<td class="right">R$ 112,00</td>
+			<td>Caixa</td>
+			<td class="right"><%= image_tag('trash.gif') %></td>
+		</tr>
+		<tr class='even'>
+			<td class="center">12/05/2010</td>
+			<td class="right">R$ 112,00</td>
+			<td>C Pagar</td>
+			<td class="right"><%= image_tag('trash.gif') %></td>
+		</tr>
+	  </tbody>
+	  <tfoot id='totais_pag'>
+
+	  </tfoot>
+	</table>
+
+	<%= cool_button_to_function("Adicionar Pagamento", "showPagtoBox();") %>
+</div>
+
+<br/>
+
+<script type="text/javascript">
+
+function showPagtoBox() {
+
+	jQuery(function($){
+		$.fn.colorbox({href:"#pgto_box", inline:true, transition:"none", opacity:0.5});
+	});
+}
+
+</script>
+
+<style type="text/css" media="screen">
+	#pgto_box {	background-color: #f8f8f5; padding:15px 15px 6px 15px; width: 420px; text-align: left; border: 1px solid #ddd;}
+</style>
+
+<div style="display:none;">
+	<div id="pgto_box" class="box_form">
+		<h2>Adicionar Pagamento</h2>
+		<%- form_for(:pagamento, :url => "#") do |f| -%>
+		<p>
+			<%= f.label(:data, 'Data') %>
+			<%= f.date_field(:data) %>
+			<%= test_error_message_on 'pagamento', 'data' %>
+		</p>
+		<p>
+			<%= f.label(:valor, 'Valor') %>
+			<%= f.currency_field(:valor) %>
+			<%= test_error_message_on 'pagamento', 'valor' %>
+		</p>
+		<p>
+			<%= f.label(:conta_id, 'Conta') %>
+			<%= f.select(:conta_id, Conta.to_select, :include_blank=>true) %>
+		</p>
+		<br class='clear' /><br/><br/>
+		<div class='buttons'>
+			<%= submit_tag "Salvar" %>
+		</div>
+		<%- end -%>
+	</div>
+</div>

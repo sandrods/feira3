@@ -1,0 +1,11 @@
+<div class="form">
+	<div class="linha first">
+
+		<div class="t24">
+		<%= f.label :vendedor_id, "Vendedor" %>
+		<%= f.select :vendedor_id, Vendedor.to_select, { :include_blank => true }, :class=>'t10 bold' %>
+		<%= test_error_message_on 'sacola', 'vendedor_id' %>
+		</div>
+
+	</div>
+</div>

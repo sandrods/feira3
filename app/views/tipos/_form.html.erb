@@ -1,0 +1,9 @@
+<div class="form">
+	<div class="linha">
+		<div class="t14">
+		<%= f.label :descricao, "Descrição" %>
+		<%= f.text_field :descricao, :class=>'t10' %>
+		<%= test_error_message_on 'tipo', 'descricao' %>
+		</div>
+	</div>
+</div>

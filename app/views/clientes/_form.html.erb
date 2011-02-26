@@ -1,0 +1,82 @@
+<div class="form">
+
+	<div class="linha first">
+		<div class="t9">
+		<%= f.label :nome, "Nome" %>
+		<%= f.text_field :nome, :class=>'t9 bold' %>
+		<%= test_error_message_on 'cliente', 'nome' %>
+		</div>
+
+		<div class="t7">
+		<%= f.label :email, "e-Mail" %>
+		<%= f.text_field :email, :class=>'t7' %>
+		<%= test_error_message_on 'cliente', 'email' %>
+		</div>
+
+		<div class="t8">
+		<%= f.label :aniversario, "Aniversário" %>
+		<%= f.masked_text_field :aniversario, :mask => '99/99', :class=>'t2 center' %>
+		<%= test_error_message_on 'cliente', 'aniversario' %>
+		</div>
+
+	</div>
+
+	<div class="linha">
+		<div class="t9">
+		<%= f.label :fone_cel, "Celular" %>
+		<%= f.text_field :fone_cel, :class=>'t4 right' %>
+		<%= test_error_message_on 'cliente', 'fone_cel' %>
+		</div>
+
+		<div class="t7">
+		<%= f.label :fone_res, "Fone Residencial" %>
+		<%= f.text_field :fone_res, :class=>'t4 right' %>
+		<%= test_error_message_on 'cliente', 'fone_res' %>
+		</div>
+
+		<div class="t8">
+		<%= f.label :fone_com, "Fone Residencial" %>
+		<%= f.text_field :fone_com, :class=>'t4 right' %>
+		<%= test_error_message_on 'cliente', 'fone_com' %>
+		</div>
+
+	</div>
+
+	<div class="linha">
+		<div class="t9">
+		<%= f.label :endereco, "Endereço" %>
+		<%= f.text_field :endereco, :class=>'t9' %>
+		<%= test_error_message_on 'cliente', 'endereco' %>
+		</div>
+
+		<div class="t4">
+		<%= f.label :bairro, "Bairro" %>
+		<%= f.text_field :bairro, :class=>'t4' %>
+		<%= test_error_message_on 'cliente', 'bairro' %>
+		</div>
+
+		<div class="t3">
+		<%= f.label :cep, "CEP" %>
+		<%= f.masked_text_field :cep, :class=>'t3 center', :mask => '99.990-999' %>
+		<%= test_error_message_on 'cliente', 'cep' %>
+		</div>
+
+		<div class="t8">
+		<%= f.label :cidade, "Cidade/UF" %>
+		<%= f.text_field :cidade, :class=>'t6' %>
+		<%= f.text_field :uf, :class=>'t1' %>
+		<%= test_error_message_on 'cliente', 'cidade' %>
+		<%= test_error_message_on 'cliente', 'uf' %>
+		</div>
+
+	</div>
+
+	<div class="linha">
+		<div class="t24">
+		<%= f.label :obs, "Obs." %>
+		<%= f.text_field :obs, :class=>'t23' %>
+		<%= test_error_message_on 'cliente', 'obs' %>
+		</div>
+	</div>
+
+</div>

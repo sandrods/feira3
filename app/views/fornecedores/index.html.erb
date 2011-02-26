@@ -1,0 +1,38 @@
+<% content_for :title do %>
+	<h1><strong>Fornecedores</strong></h1>
+	<%= cool_button('Novo Fornecedor', new_resource_url) %>
+<% end %>
+
+<div class='filter'>
+  Exibir: 
+	<%= link_to_unless_current "Ativos", fornecedores_url(:show=>:ativos) %> | 
+	<%= link_to_unless_current "Todos", fornecedores_url(:show=>:all) %>
+</div>
+
+<table class="lista small" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <th>Nome</th>
+    <th width='40px'>Ativo</th>
+	<th width='40px'>&nbsp;</th>
+	<th width='30px'>&nbsp;</th>
+  </tr>
+  <%- @fornecedores.each do |fornecedor|%>
+  <tr <%= cycle('', 'class="even"') %>>
+    <td><%= fornecedor.nome %></td>
+    <td><%= check_box_tag 'ativo', fornecedor.id, fornecedor.ativo, :onclick => 'ativar(this.value, this.checked)' %></td>
+
+    <td><%=link_to 'Editar', edit_resource_url(fornecedor), :class=>'link' %></td>
+    <td><%=link_to image_tag('trash.gif'), resource_url(fornecedor), :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<br/>
+
+<script language='javascript'>
+
+	function ativar(id, ativo) {
+		url = '/fornecedores/' + id + '/ativar?ativo=' + ativo;
+		new Ajax.Request(url, {asynchronous:true, evalScripts:true});
+		return false;
+	}
+</script>

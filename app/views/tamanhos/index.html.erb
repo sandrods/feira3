@@ -1,0 +1,18 @@
+<% content_for :title do %>
+	<h1><strong>Tamanhos</strong></h1>
+	<%= cool_button('Novo Tamanho', new_resource_url) %>
+<% end %>
+
+<table class="lista" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+  </tr>
+  <%- @tamanhos.each do |tamanho|%>
+  <tr <%= cycle('', 'class="even"') %>>
+    <td width="100%"><%= tamanho.nome %></td>
+    
+    <td><%=link_to 'Editar', edit_resource_url(tamanho), :class=>'link' %></td>
+    <td><%=link_to image_tag('trash.gif'), resource_url(tamanho), :confirm => 'Confirma Exclusão?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<br/>

@@ -1,0 +1,18 @@
+<% content_for :title do %>
+	<h1><strong>Linhas de Produtos</strong></h1>
+	<%= cool_button('Nova Linha', new_resource_url) %>
+<% end %>
+
+<table class="lista" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+  </tr>
+  <%- @linhas.each do |linha|%>
+  <tr <%= cycle('', 'class="even"') %>>
+    <td width="100%"><%= linha.descricao %></td>
+
+    <td><%=link_to 'Editar', edit_resource_url(linha), :class=>'link' %></td>
+    <td><%=link_to image_tag('trash.gif'), resource_url(linha), :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<br/>

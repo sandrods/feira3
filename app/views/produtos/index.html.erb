@@ -1,0 +1,67 @@
+<% content_for :title do %>
+	<h1><strong>Produtos</strong></h1>
+	<%= cool_button('Novo Produto', new_resource_url) %>
+<% end %>
+
+<%= form_for @search do |f| %>
+
+<div class="form">
+
+	<div class="linha first">
+
+		<div class="t8">
+		<%= f.label :fornecedor_id_equals, "Fornecedor" %>
+		<%= f.select :fornecedor_id_equals, Fornecedor.to_select, { :include_blank => true }, :class=>'t8 bold' %>
+		</div>
+
+		<div class="t5">
+		<%= f.label :colecao_id_equals, "Coleção" %>
+		<%= f.select :colecao_id_equals, Colecao.to_select, { :include_blank => true }, :class=>'t5' %>
+		</div>
+
+		<div class="t5">
+		<%= f.label :linha_id_equals, "Linha" %>
+		<%= f.select :linha_id_equals, Linha.to_select, { :include_blank => true }, :class=>'t5' %>
+		</div>
+
+		<div class="t6">
+		<%= f.label :tipo_id_equals, "Tipo" %>
+		<%= f.select :tipo_id_equals, Tipo.to_select, { :include_blank => true }, :class=>'t5' %>
+		</div>
+
+	</div>
+
+</div>
+
+<%= f.submit "Pesquisar" %>
+<%= button_to_function "Limpar Critérios", "$('search_fornecedor_id_equals', 'search_colecao_id_equals', 'search_linha_id_equals', 'search_tipo_id_equals').each(function(f) { f.clear(); })" %>
+
+<%- end -%>
+
+<table class="lista" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+	<th><%= sort_link @search, :ref, 'Referência' %></th>
+
+	<th width="160px"><%= sort_link @search, :colecao_id, 'Coleção' %></th>
+	<th width="120px"><%= sort_link @search, :tipo_descricao, 'Tipo' %></th>
+
+	<th width="90px" class='right'><%= sort_link @search, :lucro %></th>
+	<th width="90px" class='right'><%= sort_link @search, :rentabilidade, 'Rentab.' %></th>
+
+	<th width="30px">&nbsp;</th>
+  </tr>
+  <%- @produtos.each do |produto|%>
+  <tr <%= cycle('', 'class="even"') %>>
+    <td><%=link_to produto.ref, edit_resource_url(produto) %></td>
+
+	<td><%= produto.colecao.try(:descricao) %></td>
+    <td><%= produto.tipo.try(:descricao) %></td>
+
+	<td class='right'><%= number_to_currency(produto.lucro) %></td>
+	<td class='right'><%= number_to_percentage(produto.rentabilidade, :precision => 2) %></td>
+
+    <td><%=link_to image_tag('trash.gif'), resource_url(produto), :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<br/>

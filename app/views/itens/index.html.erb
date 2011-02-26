@@ -1,0 +1,70 @@
+<% content_for :title do %>
+	<h1><strong>Estoque</strong></h1>
+<% end %>
+
+<%- form_for @search do |f| -%>
+
+<div class="form">
+
+	<div class="linha first">
+
+		<div class="t8">
+		<%= f.label :produto_fornecedor_id_equals, "Fornecedor" %>
+		<%= f.select :produto_fornecedor_id_equals, Fornecedor.to_select, { :include_blank => true }, :class=>'t8 bold limpar' %>
+		</div>
+
+		<div class="t5">
+		<%= f.label :produto_colecao_id_equals, "Coleção" %>
+		<%= f.select :produto_colecao_id_equals, Colecao.to_select, { :include_blank => true }, :class=>'t5 limpar' %>
+		</div>
+
+		<div class="t5">
+		<%= f.label :produto_linha_id_equals, "Linha" %>
+		<%= f.select :produto_linha_id_equals, Linha.to_select, { :include_blank => true }, :class=>'t5 limpar' %>
+		</div>
+
+		<div class="t6">
+		<%= f.label :produto_tipo_id_equals, "Tipo" %>
+		<%= f.select :produto_tipo_id_equals, Tipo.to_select, { :include_blank => true }, :class=>'t5 limpar' %>
+		</div>
+
+	</div>
+
+</div>
+
+<%= f.submit "Pesquisar" %>
+<%= button_to_function "Limpar Critérios", "$$('.limpar').each(function(f) { f.clear(); })" %>
+
+<%- end -%>
+
+<table class="lista" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<th width='100px'>Ref.</th>
+		<th><%= order @search, :by=>:produto_ref, :as=>'Produto' %></th>
+		<th width='120px'>Cor.</th>
+		<th width='40px' class='center'>Tam.</th>
+		<th width='100px' class='right'>Valor</th>
+		<th width='60px' class='right'><%= order @search, :by=>:estoque, :as=>'Estoque' %></th>
+	</tr>
+	<tr class='totais'>
+		<td colspan='4'>Totais</td>
+		<td class="right"><%= number_to_currency(@valor) %></td>
+		<td class="right"><%= @total %></td>
+	</tr>
+	<%- @itens.each do |item|%>
+	<tr <%= cycle('', 'class="even"') %>>
+		<td><%= item.barcode %></td>
+		<td><strong><%= item.produto.ref %></strong></td>
+		<td><%= item.cor.nome %></td>
+		<td class="center"><%= item.tamanho.nome %></td>
+		<td class="right"><%= number_to_currency(item.produto.valor) %></td>
+		<td class="right bold"><%= item.estoque %></td>
+	</tr>
+	<%- end -%>
+	<tr class='totais'>
+		<td colspan='4'>Totais</td>
+		<td class="right"><%= number_to_currency(@valor) %></td>
+		<td class="right"><%= @total %></td>
+	</tr>
+</table>
+<br/>

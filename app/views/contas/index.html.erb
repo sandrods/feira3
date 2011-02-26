@@ -1,0 +1,18 @@
+<% content_for :title do %>
+	<h1><strong>Contas</strong></h1>
+	<%= cool_button('Nova Conta', new_resource_url) %>
+<% end %>
+
+<table class="lista" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+  </tr>
+  <%- @contas.each do |conta|%>
+  <tr <%= cycle('', 'class="even"') %>>
+    <td width="100%"><%= conta.nome %></td>
+    
+    <td><%=link_to 'Editar', edit_resource_url(conta), :class=>'link' %></td>
+    <td><%=link_to image_tag('trash.gif'), resource_url(conta), :confirm => 'Confirma Exclusão?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<br/>

@@ -1,0 +1,9 @@
+<tr <%= cycle('', 'class="even"') %>>
+  <td><%= item.item.barcode %></td>
+  <td><strong><%= item.item.produto.ref %></strong></td>
+  <td><%= item.item.cor.nome %></td>
+  <td class="center"><%= item.item.tamanho.nome %></td>
+  <td class="right"><%= number_to_currency(item.item.produto.valor) %></td>
+ 
+  <td class='right'><%=link_to image_tag('trash.gif'), sacola_item_url(@sacola, item), :confirm => 'Confirma Exclusão?', :method => :delete %></td>
+</tr>

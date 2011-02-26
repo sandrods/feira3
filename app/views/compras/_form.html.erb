@@ -1,0 +1,23 @@
+<div class="form">
+	<div class="linha first">
+
+		<div class="t5">
+		<%= f.label :data, "Data" %>
+		<%= f.date_field :data %>
+		<%= test_error_message_on 'compra', 'data' %>
+		</div>
+
+		<div class="t11">
+		<%= f.label :fornecedor_id, "Fornecedor" %>
+		<%= f.select :fornecedor_id, Fornecedor.to_select, { :include_blank => true }, :class=>'t10 bold' %>
+		<%= test_error_message_on 'compra', 'fornecedor_id' %>
+		</div>
+
+		<div class="t8">
+		<%= f.label :desconto, "Desconto" %>
+		<%= f.float_field :desconto, :class=>'t2', :style=>'text-align: center;' %> %
+		<%= test_error_message_on 'compra', 'desconto' %>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<% content_for :title do %>
+	<h1><strong>Sacolas</strong></h1>
+	<%= cool_button('Nova Sacola', new_resource_url) %>
+<% end %>
+
+<table class="lista" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+  </tr>
+  <%- @sacolas.each do |sacola|%>
+  <tr <%= cycle('', 'class="even"') %>>
+    <td><%= sacola.created_at.strftime("%d/%m/%Y") %></td>
+    <td width="100%"><%= sacola.vendedor.nome %></td>
+    
+    <td><%=link_to 'Editar', edit_resource_url(sacola), :class=>'link' %></td>
+    <td><%=link_to 'Produtos', sacola_itens_url(sacola), :class=>'link' %></td>
+    <td><%=link_to image_tag('trash.gif'), resource_url(sacola), :confirm => 'Confirma Exclusão?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<br/>

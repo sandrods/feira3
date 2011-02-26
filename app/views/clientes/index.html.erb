@@ -1,0 +1,33 @@
+<% content_for :title do %>
+	<h1><strong>Clientes</strong></h1>
+	<%= cool_button('Novo Cliente', new_resource_url) %>
+<% end %>
+<br/>
+
+<div class='flickr_pagination'>
+<%= links_letras %>
+</div>
+
+<table class="lista" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+	<th>Nome</th>
+	<th width="220px">Email</th>
+	<th width="90px" class='center'>Fone</th>
+	<th width="50px">&nbsp;</th>
+	<th width="20px">&nbsp;</th>
+  </tr>
+  <%- @clientes.each do |cliente|%>
+  <tr <%= cycle('', 'class="even"') %>>
+    <td class='bold'><%= cliente.nome %></td>
+    <td><%= cliente.email %></td>
+    <td class='center'><%= cliente.fone %></td>
+    
+    <td><%=link_to 'Editar', edit_resource_url(cliente), :class=>'link' %></td>
+    <td><%=link_to image_tag('trash.gif'), resource_url(cliente), :confirm => 'Confirma Exclusão?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+
+<div class='flickr_pagination'>
+<%= links_letras %>
+</div>

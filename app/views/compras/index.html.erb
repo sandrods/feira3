@@ -1,0 +1,23 @@
+<% content_for :title do %>
+	<h1><strong>Compras</strong></h1>
+	<%= cool_button('Nova Compra', new_resource_url) %>
+<% end %>
+
+<table class="lista" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+	<th>Data</th>
+	<th width="100%">Fornecedor</th>
+	<th colspan='3'>&nbsp;</th>
+  </tr>
+  <%- @compras.each do |compra|%>
+  <tr <%= cycle('', 'class="even"') %>>
+    <td><%= l compra.data %></td>
+    <td><%= compra.fornecedor.nome %></td>
+    
+    <td><%=link_to 'Editar', edit_resource_url(compra), :class=>'link' %></td>
+    <td><%=link_to 'Produtos', compra_itens_url(compra), :class=>'link' %></td>
+    <td><%=link_to image_tag('trash.gif'), resource_url(compra), :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<br/>

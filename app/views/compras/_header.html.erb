@@ -1,0 +1,30 @@
+<div class="form" id='div_show'>
+	<div class="linha first">
+		<div class="t10">
+			<h2 class='form'><%= @compra.fornecedor.try(:nome) %></h2>
+			<p><%= l @compra.data, :format => :long %></p>
+		</div>
+		<div id="totais" class='t9'>
+			<%= render :partial => 'compras/totais' %>
+		</div>
+		<div class="t3">
+			<%- if @compra.desconto && @compra.desconto > 0 -%>
+			<p class='desconto'><%= @compra.desconto %> %<small>DESCONTO</small></p>
+			<% end %>&nbsp;
+		</div>
+		<div class="t2 edit_link">
+			<%= link_to_function('Editar', "$('div_edit').show();$('div_show').hide()") %>
+		</div>
+	</div>
+</div>
+
+<div id='div_edit' style="display: none;">
+<% remote_form_for(@compra) do |f| %>
+  <%= render :partial => "compras/form", :locals => { :f => f } %>
+
+	<div class="buttons clear">
+		<%= f.submit 'Salvar' %> ou <%= link_to_function 'Cancelar', "$('div_edit').hide();$('div_show').show()", :class=>'link' %>
+	</div>
+<% end %>
+<br/>
+</div>

@@ -1,0 +1,60 @@
+<style type="text/css" media="screen">
+	#data_box {	background-color: #f8f8f5; padding:15px; text-align: center; }
+	#data_box #nome { color: #007BC4; font-size: 28px; font-weight: bold; margin:10px;}
+	#data_box .sub { color: #007BC4; font-size: 22px; font-weight: normal; margin:6px;}
+	input.barcode {
+		margin-top: 3px;
+		font-size: 16px;
+		padding: 5px;
+		border: 1px dotted #ccc;
+		background-color: #FFF9DE;
+		font-weight: bold;
+		text-align: center;
+		width: 120px;
+		color: #aaa;
+	}
+</style>
+
+<script type="text/javascript">
+function beep_ok() {
+	beep(1,10);
+	setTimeout('beep(1,10)', 330);
+	setTimeout('beep(1,10)', 660);
+}
+function beep_error() {
+	beep(2,3);
+	//setTimeout('beep(2,3)', 330);
+}
+
+function beep(tipo, som) {
+	var oBeep = $("beep" + tipo);
+	oBeep.play(som);	
+}
+function box(data) {
+	beep_ok();
+	$('nome').innerHTML = data.nome;
+	$('cor').innerHTML = data.cor;
+	$('tamanho').innerHTML = data.tamanho;
+
+	jQuery(function($){
+		$.fn.colorbox({href:"#data_box", inline:true});
+		setTimeout('jQuery(function($){$.fn.colorbox.close();});', 4000);
+	});
+}
+
+</script>
+<object id="beep1" type="application/x-shockwave-flash" data="/swf/flashbeep_general.swf" width="1" height="1">
+	<param name="movie" value="flashbeep_general.swf" />
+</object>
+
+<object id="beep2" type="application/x-shockwave-flash" data="/swf/flashbeep_alert.swf" width="1" height="1">
+	<param name="movie" value="flashbeep_alert.swf" />
+</object>
+
+<div style="display:none;">
+	<div id="data_box" style='width: 480px; height: 120px;'>
+		<div id="nome"></div>
+		<div id="cor" class='sub'></div>
+		<div id="tamanho" class='sub'></div>
+	</div>
+</div>

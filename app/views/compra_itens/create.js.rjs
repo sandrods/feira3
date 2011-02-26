@@ -1,0 +1,15 @@
+if @err_msg
+  page<<"beep_error();"
+  page.alert(@err_msg)
+else
+  page['lista_itens'].replace_html :partial => 'item', :collection => @compra.itens.desc
+  page['totais'].replace_html :partial => 'totais'
+  page['totais_tr'].replace_html :partial => 'totais_tr'
+
+  page['barcode'].value=nil
+  page<<"box({nome: '#{@item.item.produto.ref}',
+              cor: '#{@item.item.cor.nome}',
+              tamanho: '#{@item.item.tamanho.nome}'
+  });"
+
+end

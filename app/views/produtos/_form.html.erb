@@ -1,0 +1,71 @@
+
+<div class="form">
+
+  <div class="linha first">
+    <div class="t5">
+    <%= f.label :colecao_id, "Coleção" %>
+    <%= f.select :colecao_id, Colecao.to_select, { :include_blank => true }, :class=>'t5' %>
+    <%= test_error_message_on 'produto', 'colecao_id' %>
+    </div>
+
+    <div class="t8">
+    <%= f.label :fornecedor_id, "Fornecedor" %>
+    <%= f.select :fornecedor_id, Fornecedor.to_select, { :include_blank => true }, :class=>'t8 bold' %>
+    <%= test_error_message_on 'produto', 'fornecedor_id' %>
+    </div>
+
+    <div class="t11">
+    <%= f.label :linha_id, "Linha" %>
+    <%= f.select :linha_id, Linha.to_select, { :include_blank => true }, :class=>'t5' %>
+    <%= test_error_message_on 'produto', 'linha_id' %>
+    </div>
+
+  </div>
+
+  <div class="linha">
+    <div class="t5">
+    <%= f.label :tipo_id, "Tipo" %>
+    <%= f.select :tipo_id, Tipo.to_select, { :include_blank => true }, :class=>'t5' %>
+    <%= test_error_message_on 'produto', 'tipo_id' %>
+    </div>
+
+    <div class="t8">
+    <%= f.label :ref, "Referência" %>
+    <%= f.text_field :ref, :class=>'t8 bold' %>
+    <%= test_error_message_on 'produto', 'ref' %>
+    </div>
+
+    <div class="t3">
+    <%= f.label :custo %>
+    <%= f.currency_field :custo, :class=>'t3' %>
+    <%= test_error_message_on 'produto', 'custo' %>
+    </div>
+
+    <div class="t3">
+    <%= f.label :valor, "Valor de Venda" %>
+    <%= f.currency_field :valor, :class=>'t3' %>
+    <%= test_error_message_on 'produto', 'valor' %>
+    </div>
+
+    <div class="t5">
+    <label>Lucro/Rentabilidade</label>
+    <p id='lucro'><%= render :partial => 'lucro' %></p>
+    </div>
+
+  </div>
+
+</div>
+
+<script language="javascript">
+  url = '<%= lucro_produtos_path %>';
+  get_lucro = function() {
+    $.getJSON(url, 
+              { custo: $('#produto_custo_to_form').val(), 
+                valor: $('#produto_valor_to_form').val() }, 
+              function(data){
+                $('#lucro').text(data.lucro + " - " + data.rentab);
+              });
+  };
+  $('#produto_custo_to_form').change(get_lucro);
+  $('#produto_valor_to_form').change(get_lucro);
+</script>

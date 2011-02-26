@@ -1,0 +1,6 @@
+<tr class='totais'>
+	<td colspan='2'>Totals de Itens: <%= @sacola.itens.incluidos.count %></td>
+	<td colspan='2' class="right">Valor da Sacola</td>
+	<td class="right"><%= number_to_currency(@sacola.total) %></td>
+	<td colspan='1'>&nbsp;</td>
+</tr>

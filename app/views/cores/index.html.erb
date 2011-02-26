@@ -1,0 +1,18 @@
+<% content_for :title do %>
+	<h1><strong>Cores</strong></h1>
+	<%= cool_button('Nova Cor', new_resource_url) %>
+<% end %>
+
+<table class="lista" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+  </tr>
+  <%- @cores.each do |cor|%>
+  <tr <%= cycle('', 'class="even"') %>>
+    <td width="100%"><%= cor.nome %></td>
+    
+    <td><%=link_to 'Editar', edit_resource_url(cor), :class=>'link' %></td>
+    <td><%=link_to image_tag('trash.gif'), resource_url(cor), :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<br/>

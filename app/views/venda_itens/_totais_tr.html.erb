@@ -1,0 +1,6 @@
+<tr class='totais'>
+	<td colspan='2'>Totals de Itens: <%= @venda.itens.count %></td>
+	<td colspan='2' class="right">Valor da Venda</td>
+	<td class="right"><%= number_to_currency(@venda.total) %></td>
+	<td colspan='1'>&nbsp;</td>
+</tr>

@@ -1,0 +1,58 @@
+<%= render :partial => "/layouts/barcode" %>
+
+<% content_for :title do %>
+    <h1><strong>Gerenciar Sacola</strong></h1>
+	<%= cool_button("Gerar Venda Cliente", new_venda_url(:tipo=>'C', :sacola_id=>@sacola.id)) %>
+	<%= cool_button("Gerar Venda Comissionada", new_venda_url(:tipo=>'V', :sacola_id=>@sacola.id, :vendedor_id=>@sacola.vendedor_id)) %>
+<% end %>
+
+<div class="form">
+    <div class="linha first">
+        <div class="t24">
+            <h2 class='form'><%= @sacola.vendedor.try(:nome) %></h2>
+            <p><%= l @sacola.created_at.to_date, :format => :long %></p>
+        </div>
+    </div>
+</div>
+
+<div class='fleft center'>
+<label>COLOCAR</label>
+<% form_remote_tag(:url=>sacola_itens_url(@sacola)) do %>
+    <%= text_field_tag :barcode, nil, :maxlength => 10, :class=>'barcode' %>
+<%- end -%>
+</div>
+
+<div class='fright center'>
+<label>DEVOLVER</label>
+<% form_remote_tag(:url=>devolve_sacola_itens_url(@sacola)) do %>
+    <%= text_field_tag :barcode1, nil, :maxlength => 10, :class=>'barcode', :style=>'background-color: #FFEFEE;' %>
+<%- end -%>
+</div>
+
+<br class='clear'/>
+<br />
+
+<table class="lista small" cellpadding="0" cellspacing="0" width="70%">
+  <tr>
+	<th width='100px'>Ref.</th>
+	<th>Produto</th>
+	<th width='120px'>Cor.</th>
+	<th width='40px' class='center'>Tam.</th>
+	<th width='80px' class='right'>Valor</th>
+	<th width='30px'>&nbsp;</th>
+  </tr>
+  <tbody id='lista_incluidos'>
+	<%= render :partial => 'item', :collection => @sacola.itens.incluidos %>
+  </tbody>
+  <tfoot id='totais_tr'>
+  	<%= render :partial => 'totais_tr' %>
+  </tfoot>
+</table>
+
+<br/>
+
+<h3 <%= @sacola.itens.devolvidos.blank? ? "style='display: none'" : '' %> id='dev_title'>Devolvidos</h3>
+<table class="lista light devolvidos" cellpadding="0" cellspacing="0" width="60%" id='lista_devolvidos'>
+  <%= render :partial => 'item', :collection => @sacola.itens.devolvidos %>
+</table>
+

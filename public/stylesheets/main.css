@@ -1,0 +1,174 @@
+@import url("reset.css");
+@import url("grid.css");
+
+@import url("layout.css");
+@import url("menu.css");
+
+@import url("lists.css");
+@import url("forms.css");
+
+@import url("buttons.css");
+@import url("redbox.css");
+@import url("ac.css");
+
+@import url("theme.olive.css");
+
+@import url("app.css");
+
+.right { text-align: right; }
+
+.fright {	float: right; }
+.fleft { float: left; }
+.clear { clear: both; }
+
+.center { text-align: center; }
+
+.col_2 {
+	float: left;
+	width: 400px;
+}
+
+.bold {
+	font-weight: bold;
+	font-size: 12px;
+}
+
+table.devolvidos {
+	margin-top: 5px;
+}
+table.devolvidos tr.even {
+	background-color: white;
+}
+
+table.devolvidos td {
+	padding: 4px;
+	font-size: 10px;
+	color: #888;
+}
+#container a.link { 
+	border: 1px solid #ccc;
+	padding: 1px 3px;
+	color:#888;
+	background-color: #f8f8f5;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-size: 10px;
+}
+#container a.link:hover {
+	border: 1px solid #478E99;
+	color:white;
+	background-color: #478E99;
+	text-decoration:none;
+}
+
+#container a.link_small { 
+	border: 1px solid #ccc;
+	padding: 0 3px;
+	color:#888;
+	background-color: #f8f8f5;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+#container a.link_small:hover {
+	border: 1px solid #478E99;
+	color:white;
+	background-color: #478E99;
+	text-decoration:none;
+}
+
+a.download {
+	border-width:0;
+	font-weight: bold;
+	padding: 5px 15px;
+	color:#fff;
+	background-color: #6485B4;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	font-size: 10px;
+}
+a.download:hover {
+	color:white;
+	background-color: #7EB5FD;
+	text-decoration:none;
+}
+
+img.handle {
+	cursor: move;
+}
+
+h2.form {
+	margin : 8px 0 0 8px;
+	border-width: 0px;
+	padding: 0;
+}
+h2.totais {
+	margin : 15px;
+	border-width: 0px;
+	font-size: 18px;
+}
+
+tr.totais {
+	background-color: #f8f8f5;
+}
+tr.totais td {
+	font-weight: bold;
+}
+
+p.desconto {
+	padding-top: 10px;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+	color: #bbb;
+}
+p.desconto small {
+	display: block;
+	font-size: 11px;
+	color: #bbb;
+	font-weight: bold;
+	margin: -5px 0;
+}
+
+.edit_link {
+	padding-top:36px;
+	text-align: right;
+}
+.edit_link a {
+	color:#bbb;
+	border:0;
+}
+.edit_link a:hover {
+	color:#888;
+	padding-left:16px;
+	background: url('../images/page_edit.png') no-repeat scroll -3px;
+	text-decoration: none;
+}
+
+.filter {
+	color: #888;
+	text-align: right;
+}
+.filter a {
+	color: #007BC4;
+}
+
+.box_form h2 {
+	border: 0;
+	margin: 0 0 10px 0;
+}
+
+.box_form p {
+	float: left;
+	padding:4px 10px 4px 4px;
+}
+
+.box_form label {
+	display:block;
+	font-size: 10px;
+	font-weight: bold;
+	color: #007BC4;
+	width: 90px;
+}

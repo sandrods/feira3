@@ -1,0 +1,32 @@
+<%= render :partial => "/layouts/barcode" %>
+
+<% content_for :title do %>
+	<h1><strong>Itens da Compra: <%= @compra.id %></strong></h1>
+<% end %>
+
+<div id="div_header">
+<%= render :partial => "/compras/header" %>
+</div>
+
+<% form_remote_tag(:url=>compra_itens_url(@compra)) do %>
+	<%= text_field_tag :barcode, nil, :maxlength => 10, :class=>'barcode' %>
+<%- end -%>
+
+<br/>
+<table class="lista small" cellpadding="0" cellspacing="0" width="70%">
+  <tr>
+	<th width='100px'>Ref.</th>
+	<th>Produto</th>
+	<th width='120px'>Cor.</th>
+	<th width='40px' class='center'>Tam.</th>
+	<th width='80px' class='right'>Valor</th>
+	<th width='30px'>&nbsp;</th>
+  </tr>
+  <tbody id='lista_itens'>
+	<%= render :partial => 'item', :collection => @itens %>
+  </tbody>
+  <tfoot id='totais_tr'>
+  	<%= render :partial => 'totais_tr' %>
+  </tfoot>
+</table>
+<br/>
