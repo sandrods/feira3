@@ -8,7 +8,7 @@
 <%= render :partial => "/vendas/header" %>
 </div>
 
-<% form_remote_tag(:url=>venda_itens_url(@venda)) do %>
+<%= form_remote_tag(:url=>venda_itens_url(@venda)) do %>
 	<%= text_field_tag :barcode, nil, :maxlength => 10, :class=>'barcode' %>
 <%- end -%>
 
@@ -87,16 +87,16 @@ function showPagtoBox() {
 <div style="display:none;">
 	<div id="pgto_box" class="box_form">
 		<h2>Adicionar Pagamento</h2>
-		<%- form_for(:pagamento, :url => "#") do |f| -%>
+		<%= form_for(:pagamento, :url => "#") do |f| %>
 		<p>
 			<%= f.label(:data, 'Data') %>
 			<%= f.date_field(:data) %>
-			<%= test_error_message_on 'pagamento', 'data' %>
+			<%= error_message_on @pagamento, 'data' %>
 		</p>
 		<p>
 			<%= f.label(:valor, 'Valor') %>
 			<%= f.currency_field(:valor) %>
-			<%= test_error_message_on 'pagamento', 'valor' %>
+			<%= error_message_on @pagamento, 'valor' %>
 		</p>
 		<p>
 			<%= f.label(:conta_id, 'Conta') %>

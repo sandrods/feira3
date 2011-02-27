@@ -3,7 +3,7 @@
 
 <div class="t24">
 	
-<% form_for :nodo, @nodo1, :url=>{:action => 'inclui'} do |f| %>
+<%= form_for :nodo, @nodo1, :url=>{:action => 'inclui'} do |f| %>
   <%= f.hidden_field("parent_id")%> 
   <%= render :partial => 'form', :locals=>{:f=>f} %>
   <div class="buttons">

@@ -17,14 +17,14 @@
 
 <div class='fleft center'>
 <label>COLOCAR</label>
-<% form_tag(sacola_itens_url(@sacola), :remote => true ) do %>
+<%= form_tag(sacola_itens_url(@sacola), :remote => true ) do %>
     <%= text_field_tag :barcode, nil, :maxlength => 10, :class=>'barcode' %>
 <%- end -%>
 </div>
 
 <div class='fright center'>
 <label>DEVOLVER</label>
-<% form_tag(devolve_sacola_itens_url(@sacola), :remote => true ) do %>
+<%= form_tag(devolve_sacola_itens_url(@sacola), :remote => true ) do %>
     <%= text_field_tag :barcode1, nil, :maxlength => 10, :class=>'barcode', :style=>'background-color: #FFEFEE;' %>
 <%- end -%>
 </div>

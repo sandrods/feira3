@@ -3,7 +3,7 @@
 		<div class="t23">
 			<%= f.label :nome, "Nome da Cor" %>			
 			<%= f.text_field :nome, :class=>'t10' %>
-			<%= test_error_message_on 'cor', 'nome' %>
+			<%= error_message_on @cor, 'nome' %>
 		</div>
 	</div>
 </div>

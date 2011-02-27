@@ -4,25 +4,25 @@
 		<div class="t5">
 		<%= f.label :data, "Data" %>
 		<%= f.date_field :data %>
-		<%= test_error_message_on 'venda', 'data' %>
+		<%= error_message_on @venda, 'data' %>
 		</div>
 
 		<div class="t11">
 		<%- if @venda.cliente? -%>
 			<%= f.label :cliente_id, "Cliente" %>
 			<%= f.select :cliente_id, Cliente.to_select, { :include_blank => true }, :class=>'t10 bold' %>
-			<%= test_error_message_on 'venda', 'cliente_id' %>
+			<%= error_message_on @venda, 'cliente_id' %>
 		<%- else -%>
 			<%= f.label :vendedor_id, "Vendedor" %>
 			<%= f.select :vendedor_id, Vendedor.to_select, { :include_blank => true }, :class=>'t10 bold' %>
-			<%= test_error_message_on 'venda', 'vendedor_id' %>
+			<%= error_message_on @venda, 'vendedor_id' %>
 		<%- end -%>
 		</div>
 
 		<div class="t8">
 		<%= f.label :desconto, "Desconto" %>
 		<%= f.float_field :desconto, :class=>'t2', :style=>'text-align: center;' %> %
-		<%= test_error_message_on 'venda', 'desconto' %>
+		<%= error_message_on @venda, 'desconto' %>
 		</div>
 
 	</div>

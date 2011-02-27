@@ -86,10 +86,6 @@ module ApplicationHelper
       ''
     end
   end
-  
-  def test_error_message_on(object, method)
-    error_message_on(object, method, :css_class=>"formError erro_#{method}")
-  end
 
   def test_label(form, id, field_name, text, options = {})
     label = form.label(field_name, text, options)

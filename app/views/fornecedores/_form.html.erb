@@ -4,12 +4,12 @@
 		<div class="t18">
 		<%= f.label :nome %>
 		<%= f.text_field :nome, :class=>'t18' %>
-		<%= test_error_message_on 'fornecedor', 'nome' %>
+		<%= error_message_on @fornecedor, 'nome' %>
 		</div>
 		<div class="t6">
 		<%= f.label :cnpj %>
 		<%= f.text_field :cnpj, :class=>'t6' %>
-		<%= test_error_message_on 'fornecedor', 'cnpj' %>
+		<%= error_message_on @fornecedor, 'cnpj' %>
 		</div>
 	</div>
 
@@ -17,17 +17,17 @@
 		<div class="t8">
 		<%= f.label :fone %>
 		<%= f.text_field :fone, :class=>'t8' %>
-		<%= test_error_message_on 'fornecedor', 'fone' %>
+		<%= error_message_on @fornecedor, 'fone' %>
 		</div>
 		<div class="t8">
 		<%= f.label :email %>
 		<%= f.text_field :email, :class=>'t8' %>
-		<%= test_error_message_on 'fornecedor', 'email' %>
+		<%= error_message_on @fornecedor, 'email' %>
 		</div>
 		<div class="t8">
 		<%= f.label :website %>
 		<%= f.text_field :website, :class=>'t8' %>
-		<%= test_error_message_on 'fornecedor', 'website' %>
+		<%= error_message_on @fornecedor, 'website' %>
 		</div>
 	</div>	
 	
@@ -35,27 +35,27 @@
 		<div class="t9">
 		<%= f.label :endereco, "Endereço" %>
 		<%= f.text_field :endereco, :class=>'t9' %>
-		<%= test_error_message_on 'fornecedor', 'endereco' %>
+		<%= error_message_on @fornecedor, 'endereco' %>
 		</div>
 		<div class="t5">
 		<%= f.label :bairro %>
 		<%= f.text_field :bairro, :class=>'t5' %>
-		<%= test_error_message_on 'fornecedor', 'bairro' %>
+		<%= error_message_on @fornecedor, 'bairro' %>
 		</div>
 		<div class="t3">
 		<%= f.label :cep %>
 		<%= f.masked_text_field :cep, :class=>'t3', :mask=>"99.999-999" %>
-		<%= test_error_message_on 'fornecedor', 'cep' %>
+		<%= error_message_on @fornecedor, 'cep' %>
 		</div>
 		<div class="t5">
 		<%= f.label :cidade %>
 		<%= f.text_field :cidade, :class=>'t5' %>
-		<%= test_error_message_on 'fornecedor', 'cidade' %>
+		<%= error_message_on @fornecedor, 'cidade' %>
 		</div>
 		<div class="t2">
 		<%= f.label :uf %>
 		<%= f.select :uf, Fornecedor::ESTADOS, { :include_blank => true }, :class=>'t2' %>
-		<%= test_error_message_on 'fornecedor', 'uf' %>
+		<%= error_message_on @fornecedor, 'uf' %>
 		</div>
 	</div>	
 
@@ -63,7 +63,7 @@
 		<div class="t24">
 		<%= f.label :obs %>
 		<%= f.text_area :obs, :class=>'t24', :rows=>2 %>
-		<%= test_error_message_on 'fornecedor', 'obs' %>
+		<%= error_message_on @fornecedor, 'obs' %>
 		</div>
 	</div>
 

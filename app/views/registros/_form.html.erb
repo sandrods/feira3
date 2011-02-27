@@ -4,18 +4,18 @@
 			<div class="t3">
 				<%= f.label :data, "Data" %>			
 				<%= f.date_field :data, :class=>'t3' %>
-				<%= test_error_message_on 'registro', 'data' %>
+				<%= error_message_on @registro, 'data' %>
 			</div>
 			<div class="t9">
 				<%= f.label :descricao, "Descrição" %>
 				<%= f.text_field :descricao, :class=>'t9'%>
-				<%= test_error_message_on 'registro', 'descricao' %>			
+				<%= error_message_on @registro, 'descricao' %>			
 			</div>
 
 			<div class="t4">
 				<%= f.label :valor, "Valor" %>
 				<%= f.currency_field :valor, :class=>'t4' %>
-				<%= test_error_message_on 'registro', 'valor' %>
+				<%= error_message_on @registro, 'valor' %>
 			</div>
 
 			<div class="t6">
@@ -27,7 +27,7 @@
 				<%= f.radio_button :cd, "D" %>
 				<%= f.label :cd, "Débito", :value=>"D", :class=>'inline' %>
 				
-				<%= test_error_message_on 'registro', 'cd' %>
+				<%= error_message_on @registro, 'cd' %>
 			</div>
 
 		</div>

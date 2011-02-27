@@ -8,7 +8,7 @@
 <%= render :partial => "/compras/header" %>
 </div>
 
-<% form_remote_tag(:url=>compra_itens_url(@compra)) do %>
+<%= form_remote_tag(:url=>compra_itens_url(@compra)) do %>
 	<%= text_field_tag :barcode, nil, :maxlength => 10, :class=>'barcode' %>
 <%- end -%>
 

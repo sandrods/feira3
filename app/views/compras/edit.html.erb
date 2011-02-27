@@ -4,7 +4,7 @@
 
 <%= error_messages_for :compra %>
 
-<% form_for(:compra, :url => resource_url, :html => { :method => :put }) do |f| %>
+<%= form_for(:compra, :url => resource_url, :html => { :method => :put }) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
 
 	<div class="buttons clear">
