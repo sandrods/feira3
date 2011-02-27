@@ -27,19 +27,18 @@ function beep_error() {
 }
 
 function beep(tipo, som) {
-	var oBeep = $("beep" + tipo);
-	oBeep.play(som);	
+	var oBeep = $("#beep" + tipo);
+	oBeep[0].play(som);	
 }
 function box(data) {
 	beep_ok();
-	$('nome').innerHTML = data.nome;
-	$('cor').innerHTML = data.cor;
-	$('tamanho').innerHTML = data.tamanho;
+	$('#nome').html(data.nome);
+	$('#cor').html(data.cor);
+	$('#tamanho').html(data.tamanho);
 
-	jQuery(function($){
-		$.fn.colorbox({href:"#data_box", inline:true});
-		setTimeout('jQuery(function($){$.fn.colorbox.close();});', 4000);
-	});
+	$.fn.colorbox({href:"#data_box", inline:true});
+	setTimeout('$.fn.colorbox.close();', 4000);
+
 }
 
 </script>

@@ -2,8 +2,6 @@
 	<h1><strong>Novo Produto</strong></h1>
 <% end %>
 
-<%= error_messages_for :produto %>
-
 <% form_for(:produto, :url => collection_url) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
 
