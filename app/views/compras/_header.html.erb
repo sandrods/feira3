@@ -19,7 +19,7 @@
 </div>
 
 <div id='div_edit' style="display: none;">
-<% remote_form_for(@compra) do |f| %>
+<%= form_for(@compra, :remote => true ) do |f| %>
   <%= render :partial => "compras/form", :locals => { :f => f } %>
 
 	<div class="buttons clear">
