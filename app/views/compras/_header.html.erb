@@ -13,7 +13,7 @@
 			<% end %>&nbsp;
 		</div>
 		<div class="t2 edit_link">
-			<%= link_to_function('Editar', "$('div_edit').show();$('div_show').hide()") %>
+			<%= link_to_function('Editar', "$('#div_edit').show();$('#div_show').hide()") %>
 		</div>
 	</div>
 </div>
@@ -23,7 +23,7 @@
   <%= render :partial => "compras/form", :locals => { :f => f } %>
 
 	<div class="buttons clear">
-		<%= f.submit 'Salvar' %> ou <%= link_to_function 'Cancelar', "$('div_edit').hide();$('div_show').show()", :class=>'link' %>
+		<%= f.submit 'Salvar' %> ou <%= link_to_function 'Cancelar', "$('#div_edit').hide();$('#div_show').show()", :class=>'link' %>
 	</div>
 <% end %>
 <br/>
