@@ -1,0 +1,20 @@
+<%-if @err_msg -%>
+
+	beep_error();
+ 	alert(<%= @err_msg %>)
+
+<% else %>
+
+	$('#lista_itens').html("<%= escape_javascript(render(:partial => 'item', :collection => @venda.itens.desc)) %>");
+
+	$('#totais').html("<%= escape_javascript(render(:partial => 'vendas/totais')) %>");
+	$('#totais_tr').html("<%= escape_javascript(render(:partial => 'totais_tr')) %>");
+
+  $('#barcode').val('');
+
+	box({nome: '<%= @item.item.produto.ref %>',
+        cor: '<%= @item.item.cor.nome %>',
+        tamanho: '<%= @item.item.tamanho.nome %>'
+  });
+
+<%- end -%>

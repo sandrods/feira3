@@ -1,4 +1,0 @@
-page['div_edit'].hide
-page['div_show'].show
-
-page['div_header'].replace_html :partial => 'header'
