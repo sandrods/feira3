@@ -34,4 +34,4 @@ gem 'inherited_resources', '~> 1.2.1'
 gem "meta_search"
 gem 'kaminari'
 gem "jquery-rails"
-
+gem "rubytree"

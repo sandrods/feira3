@@ -1,0 +1,13 @@
+- title: Produtos
+  link: produtos_url
+
+- title: Sacolas
+  link: sacolas_url
+
+- title: Cadastros
+  subs:
+    - title: Tamanhos
+      link: tamanhos_url
+
+    - title: Linhas
+      link: linhas_url
