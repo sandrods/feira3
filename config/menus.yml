@@ -1,13 +1,48 @@
-- title: Produtos
-  link: produtos_url
-
-- title: Sacolas
-  link: sacolas_url
-
-- title: Cadastros
+- title: Configurações
   subs:
-    - title: Tamanhos
-      link: tamanhos_url
+    - title: Coleções
+      link: colecoes_path
+
+    - title: Tipo
+      link: tipos_path
 
     - title: Linhas
-      link: linhas_url
+      link: linhas_path
+
+    - title: Tamnhos
+      link: tamanhos_path
+
+    - title: Cores
+      link: cores_path
+
+    - title: Vendedores
+      link: vendedores_path
+
+- title: Financeiro
+
+- title: Vendas
+  subs:
+    - title: Vendas
+      link: vendas_path
+
+    - title: Sacolas
+      link: sacolas_path
+
+    - title: Clientes
+      link: clientes_path
+
+- title: Produtos
+  subs:
+    - title: Produtos
+      link: produtos_path
+
+    - title: Estoque
+      link: itens_path
+
+- title: Compras
+  subs:
+    - title: Compras
+      link: compras_path
+
+    - title: Fornecedores
+      link: fornecedores_path

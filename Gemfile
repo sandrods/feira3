@@ -31,7 +31,8 @@ gem 'sqlite3'
 # end
 
 gem 'inherited_resources', '~> 1.2.1'
-gem "meta_search"
+gem 'meta_search'
 gem 'kaminari'
-gem "jquery-rails"
-gem "rubytree"
+gem 'jquery-rails'
+gem 'dynamic_menus', :git => 'git://github.com/sandrods/dynamic_menus.git'
+#gem 'dynamic_menus', :path => '/Users/sandro/dev/workspace/dynamic_menus'

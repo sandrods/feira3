@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/sandrods/dynamic_menus.git
+  revision: 60756e3c78541f560ba6d94ea978d79a8ff17643
+  specs:
+    dynamic_menus (0.0.1)
+      rubytree (~> 0.8.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -85,10 +92,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dynamic_menus!
   inherited_resources (~> 1.2.1)
   jquery-rails
   kaminari
   meta_search
   rails (= 3.0.4)
-  rubytree
   sqlite3
