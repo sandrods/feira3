@@ -1,6 +1,11 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def render_partial_js(partial, options = {}, locals = {}, &block)
+    options[:partial] = partial
+    escape_javascript(render(options, locals, &block))
+  end
+
   def cool_button(text, link_opts={}, opts={})
     icon = opts.delete(:icon)||'add'
     ultimo = opts.delete(:ultimo)

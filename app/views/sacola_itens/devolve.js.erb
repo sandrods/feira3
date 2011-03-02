@@ -7,10 +7,10 @@
 
 	$('#dev_title').show();
 
-	$('#lista_incluidos').html("<%= escape_javascript(render(:partial => 'item', :collection => @sacola.itens.incluidos)) %>");
-	$('#lista_devolvidos').html("<%= escape_javascript(render(:partial => 'item', :collection => @sacola.itens.devolvidos)) %>");
+	$('#lista_incluidos').html("<%= render_partial_js('item', :collection => @sacola.itens.incluidos) %>");
+	$('#lista_devolvidos').html("<%= render_partial_js('item', :collection => @sacola.itens.devolvidos) %>");
 
-	$('#totais_tr').html("<%= escape_javascript(render(:partial => 'totais_tr')) %>");
+	$('#totais_tr').html("<%= render_partial_js('totais_tr') %>");
 
   $('#barcode1').val('');
 

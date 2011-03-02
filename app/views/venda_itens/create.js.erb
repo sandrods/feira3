@@ -5,10 +5,10 @@
 
 <% else %>
 
-	$('#lista_itens').html("<%= escape_javascript(render(:partial => 'item', :collection => @venda.itens.desc)) %>");
+	$('#lista_itens').html("<%= render_partial_js('item', :collection => @venda.itens.desc) %>");
 
-	$('#totais').html("<%= escape_javascript(render(:partial => 'vendas/totais')) %>");
-	$('#totais_tr').html("<%= escape_javascript(render(:partial => 'totais_tr')) %>");
+	$('#totais').html("<%= render_partial_js('vendas/totais') %>");
+	$('#totais_tr').html("<%= render_partial_js('totais_tr') %>");
 
   $('#barcode').val('');
 

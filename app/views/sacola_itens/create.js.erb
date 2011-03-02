@@ -5,9 +5,9 @@
 
 <% else %>
 
-	$('#lista_incluidos').html("<%= escape_javascript(render(:partial => 'item', :collection => @sacola.itens.incluidos)) %>");
+	$('#lista_incluidos').html("<%= render_partial_js('item', :collection => @sacola.itens.incluidos) %>");
 
-	$('#totais_tr').html("<%= escape_javascript(render(:partial => 'totais_tr')) %>");
+	$('#totais_tr').html("<%= render_partial_js('totais_tr') %>");
 
   $('#barcode').val('');
 
