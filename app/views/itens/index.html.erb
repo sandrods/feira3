@@ -33,18 +33,18 @@
 </div>
 
 <%= f.submit "Pesquisar" %>
-<%= button_to_function "Limpar Critérios", "$$('.limpar').each(function(f) { f.clear(); })" %>
+<%= button_to_function "Limpar Critérios", "$('.limpar').val('');" %>
 
 <%- end -%>
 
 <table class="lista" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<th width='100px'>Ref.</th>
-		<th><%= order @search, :by=>:produto_ref, :as=>'Produto' %></th>
+		<th><%= sort_link @search, :produto_ref, 'Produto' %></th>
 		<th width='120px'>Cor.</th>
 		<th width='40px' class='center'>Tam.</th>
 		<th width='100px' class='right'>Valor</th>
-		<th width='60px' class='right'><%= order @search, :by=>:estoque, :as=>'Estoque' %></th>
+		<th width='80px' class='right'><%= sort_link @search, :estoque, 'Estoque' %></th>
 	</tr>
 	<tr class='totais'>
 		<td colspan='4'>Totais</td>

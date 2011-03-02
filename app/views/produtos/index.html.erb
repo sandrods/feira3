@@ -11,22 +11,22 @@
 
 		<div class="t8">
 		<%= f.label :fornecedor_id_equals, "Fornecedor" %>
-		<%= f.select :fornecedor_id_equals, Fornecedor.to_select, { :include_blank => true }, :class=>'t8 bold' %>
+		<%= f.select :fornecedor_id_equals, Fornecedor.to_select, { :include_blank => true }, :class=>'t8 bold limpar' %>
 		</div>
 
 		<div class="t5">
 		<%= f.label :colecao_id_equals, "Coleção" %>
-		<%= f.select :colecao_id_equals, Colecao.to_select, { :include_blank => true }, :class=>'t5' %>
+		<%= f.select :colecao_id_equals, Colecao.to_select, { :include_blank => true }, :class=>'t5 limpar' %>
 		</div>
 
 		<div class="t5">
 		<%= f.label :linha_id_equals, "Linha" %>
-		<%= f.select :linha_id_equals, Linha.to_select, { :include_blank => true }, :class=>'t5' %>
+		<%= f.select :linha_id_equals, Linha.to_select, { :include_blank => true }, :class=>'t5 limpar' %>
 		</div>
 
 		<div class="t6">
 		<%= f.label :tipo_id_equals, "Tipo" %>
-		<%= f.select :tipo_id_equals, Tipo.to_select, { :include_blank => true }, :class=>'t5' %>
+		<%= f.select :tipo_id_equals, Tipo.to_select, { :include_blank => true }, :class=>'t5 limpar' %>
 		</div>
 
 	</div>
@@ -34,7 +34,7 @@
 </div>
 
 <%= f.submit "Pesquisar" %>
-<%= button_to_function "Limpar Critérios", "$('search_fornecedor_id_equals', 'search_colecao_id_equals', 'search_linha_id_equals', 'search_tipo_id_equals').each(function(f) { f.clear(); })" %>
+<%= button_to_function "Limpar Critérios", "$('.limpar').val('');" %>
 
 <%- end -%>
 

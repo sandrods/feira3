@@ -36,7 +36,7 @@ class ItensController < InheritedResources::Base
     end
 
     if params[:search]
-      params[:search][:order]='ascend_by_produto_ref' if params[:search][:order].blank?
+      params[:search][:meta_sort]='produto_ref.asc' if params[:search][:meta_sort].blank?
       @search = Item.search(params[:search])
       @itens = @search.all(:include => [:produto, :cor, :tamanho])
 
