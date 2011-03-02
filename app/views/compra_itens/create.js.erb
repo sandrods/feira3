@@ -1,0 +1,20 @@
+<%-if @err_msg -%>
+
+	beep_error();
+ 	alert(<%= @err_msg %>)
+
+<% else %>
+
+	$('#lista_itens').html("<%= render_partial_js('item', :collection => @compra.itens.desc) %>");
+
+	$('#totais').html("<%= render_partial_js('compras/totais') %>");
+	$('#totais_tr').html("<%= render_partial_js('totais_tr') %>");
+
+  $('#barcode').val('');
+
+	box({nome: '<%= @item.item.produto.ref %>',
+        cor: '<%= @item.item.cor.nome %>',
+        tamanho: '<%= @item.item.tamanho.nome %>'
+  });
+
+<%- end -%>
