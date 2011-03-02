@@ -2,10 +2,10 @@ class Sacola < ActiveRecord::Base
 
   has_many :itens, :class_name => "SacolaItem", :dependent => :destroy do
     def incluidos
-      find_all_by_status('I')
+      where(:status=>'I')
     end
     def devolvidos
-      find_all_by_status('D')
+      where(:status=>'D')
     end
   end
 

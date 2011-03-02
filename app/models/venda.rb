@@ -5,7 +5,7 @@ class Venda < ActiveRecord::Base
 
   has_many :itens, :class_name => "VendaItem", :dependent => :destroy do
     def desc
-      find(:all, :order=>'id desc')
+      order('id desc')
     end
   end
   
@@ -17,8 +17,8 @@ class Venda < ActiveRecord::Base
   acts_as_br_date :data
   acts_as_br_float :desconto
 
-  named_scope :clientes,      :conditions => { :tipo => "C" }
-  named_scope :comissionadas, :conditions => { :tipo => "V" }
+  scope :clientes,      where(:tipo => "C" )
+  scope :comissionadas, where(:tipo => "V" )
 
   def cliente?
     tipo == 'C'

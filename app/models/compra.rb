@@ -3,7 +3,7 @@ class Compra < ActiveRecord::Base
   belongs_to :fornecedor
   has_many :itens, :class_name => 'CompraItem', :dependent => :destroy do
     def desc
-      find(:all, :order=>'id desc')
+      order('id desc')
     end
   end
 

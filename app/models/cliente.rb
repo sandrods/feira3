@@ -40,7 +40,7 @@ class Cliente < ActiveRecord::Base
   end
 
   def self.por_letra(letra)
-    find(:all, :conditions => ["nome like ?", "#{letra}%"])
+    where(["nome like ?", "#{letra}%"])
   end
 
   def self.to_select

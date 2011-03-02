@@ -27,7 +27,7 @@ class Item < ActiveRecord::Base
     raise ItemException.new("Cor Inválida: #{cor_id}") unless cor
     raise ItemException.new("Tamanho Inválido: #{tam_id}") unless tam
 
-    item = Item.find :first, :conditions => {:cor_id => cor.id, :tamanho_id => tam.id, :produto_id => produto.id }
+    item = Item.where(:cor_id => cor.id, :tamanho_id => tam.id, :produto_id => produto.id).first
     unless item
       if create
         item = Item.create(:cor_id=>cor.id, :tamanho_id => tam.id, :produto_id => produto.id, :estoque => 0)
