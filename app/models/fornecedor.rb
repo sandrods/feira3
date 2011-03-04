@@ -8,6 +8,6 @@ class Fornecedor < ActiveRecord::Base
   end
   
   def Fornecedor.update_select
-    @@combo = Fornecedor.where('ativo=true').map {|c| [c.nome, c.id]}
+    @@combo = Fornecedor.where(:ativo => true).map {|c| [c.nome, c.id]}
   end
 end
