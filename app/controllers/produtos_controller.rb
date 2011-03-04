@@ -60,14 +60,13 @@ class ProdutosController < InheritedResources::Base
 
   end
 
-  include ActionView::Helpers::NumberHelper
   def lucro
     custo = Produto.currency_to_number(params[:custo])
     valor = Produto.currency_to_number(params[:valor])
     @lucro = Produto.lucro(valor, custo)
     @rentab = Produto.rentabilidade(valor, custo)
 
-    render :json => {:lucro => number_to_currency(@lucro), :rentab => number_to_percentage(@rentab, :precision => 2) }
+    render :partial => 'lucro'
 
   end
 

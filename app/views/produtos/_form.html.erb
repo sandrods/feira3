@@ -58,14 +58,14 @@
 
 <script language="javascript">
   url = '<%= lucro_produtos_path %>';
+
   get_lucro = function() {
-    $.getJSON(url, 
-              { custo: $('#produto_custo_to_form').val(), 
-                valor: $('#produto_valor_to_form').val() }, 
-              function(data){
-                $('#lucro').text(data.lucro + " - " + data.rentab);
-              });
+		$('#lucro').fadeOut(function() {
+			$('#lucro').load(url, { custo: $('#produto_custo_to_form').val(), valor: $('#produto_valor_to_form').val() }, function() { $('#lucro').fadeIn() } )
+		});
+
   };
+
   $('#produto_custo_to_form').change(get_lucro);
   $('#produto_valor_to_form').change(get_lucro);
 </script>

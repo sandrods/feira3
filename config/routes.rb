@@ -33,7 +33,7 @@ Feira3::Application.routes.draw do
   end
 
   resources :produtos do
-    get 'lucro', :on => :collection
+    post 'lucro', :on => :collection
   end 
   
   resources :fornecedores do
