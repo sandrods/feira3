@@ -31,7 +31,7 @@ gem 'sqlite3'
 # end
 
 gem 'inherited_resources', '~> 1.2.1'
-gem 'meta_search'
+gem 'meta_search', :git => "git://github.com/ernie/meta_search.git"
 gem 'kaminari'
 gem 'jquery-rails'
 gem 'dynamic_menus', :git => 'git://github.com/sandrods/dynamic_menus.git'

@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/ernie/meta_search.git
+  revision: 4fc9ab8f9c47b48e733ce867c5919f009a66d7c6
+  specs:
+    meta_search (1.0.1)
+      actionpack (~> 3.0.2)
+      activerecord (~> 3.0.2)
+      activesupport (~> 3.0.2)
+      arel (~> 2.0.2)
+
+GIT
   remote: git://github.com/sandrods/dynamic_menus.git
   revision: 60756e3c78541f560ba6d94ea978d79a8ff17643
   specs:
@@ -54,14 +64,9 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_search (1.0.1)
-      actionpack (~> 3.0.2)
-      activerecord (~> 3.0.2)
-      activesupport (~> 3.0.2)
-      arel (~> 2.0.2)
     mime-types (1.16)
     polyglot (0.3.1)
-    rack (1.2.1)
+    rack (1.2.2)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
     rack-test (0.5.7)
@@ -96,6 +101,6 @@ DEPENDENCIES
   inherited_resources (~> 1.2.1)
   jquery-rails
   kaminari
-  meta_search
+  meta_search!
   rails (= 3.0.4)
   sqlite3
