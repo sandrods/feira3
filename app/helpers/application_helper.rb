@@ -49,6 +49,8 @@ module ApplicationHelper
   end
 
   def error_message_on(model, field)
+    return unless model.present?
+
     content_tag(:span, :class=>"errorMessage") do
       model.errors[field].join("<br/>")
     end.html_safe

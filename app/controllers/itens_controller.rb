@@ -32,7 +32,7 @@ class ItensController < InheritedResources::Base
         session[:search_itens] = params[:search]
       end
     else
-      params[:search] = session[:search] if session[:search_itens]
+      params[:search] = session[:search_itens] if session[:search_itens]
     end
 
     if params[:search]

@@ -1,8 +1,8 @@
 class RegistrosController < InheritedResources::Base
   
   def index
-    @creditos = Registro.creditos.all
-    @debitos = Registro.debitos.all
+    @creditos = Registro.creditos
+    @debitos = Registro.debitos
   end
 
 end
