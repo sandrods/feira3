@@ -46,66 +46,25 @@
 		<th width='20px'>&nbsp;</th>
 	  </tr>
 	  <tbody id='pag_itens'>
-		<tr>
-			<td class="center">12/04/2010</td>
-			<td class="right">R$ 112,00</td>
-			<td>Caixa</td>
-			<td class="right"><%= image_tag('trash.gif') %></td>
-		</tr>
-		<tr class='even'>
-			<td class="center">12/05/2010</td>
-			<td class="right">R$ 112,00</td>
-			<td>C Pagar</td>
-			<td class="right"><%= image_tag('trash.gif') %></td>
-		</tr>
+			<%= render :partial => 'venda_pagamentos/pagamento', :collection => @venda.pagamentos %>
 	  </tbody>
 	  <tfoot id='totais_pag'>
 
 	  </tfoot>
 	</table>
 
-	<%= cool_button_to_function("Adicionar Pagamento", "showPagtoBox();") %>
+	<%= cool_button("Adicionar Pagamento", new_venda_pagamento_url(@venda), :id => 'add_pag') %>
 </div>
 
 <br/>
 
 <script type="text/javascript">
 
-function showPagtoBox() {
-
-	jQuery(function($){
-		$.fn.colorbox({href:"#pgto_box", inline:true, transition:"none", opacity:0.5});
-	});
-}
+$('#add_pag').colorbox({transition:"none", opacity:0.5});
+$('.lt_pag').colorbox({transition:"none", opacity:0.5});
 
 </script>
 
 <style type="text/css" media="screen">
 	#pgto_box {	background-color: #f8f8f5; padding:15px 15px 6px 15px; width: 420px; text-align: left; border: 1px solid #ddd;}
 </style>
-
-<div style="display:none;">
-	<div id="pgto_box" class="box_form">
-		<h2>Adicionar Pagamento</h2>
-		<%= form_for(:pagamento, :url => "#") do |f| %>
-		<p>
-			<%= f.label(:data, 'Data') %>
-			<%= f.date_field(:data) %>
-			<%= error_message_on @pagamento, 'data' %>
-		</p>
-		<p>
-			<%= f.label(:valor, 'Valor') %>
-			<%= f.currency_field(:valor) %>
-			<%= error_message_on @pagamento, 'valor' %>
-		</p>
-		<p>
-			<%= f.label(:conta_id, 'Conta') %>
-			<%= f.select(:conta_id, Conta.to_select, :include_blank=>true) %>
-		</p>
-		<br class='clear' /><br/><br/>
-		<div class='buttons'>
-			<%= submit_tag "Salvar" %>
-		</div>
-		<%- end -%>
-	</div>
-</div>

@@ -5,8 +5,8 @@ class Registro < ActiveRecord::Base
   
   validates_presence_of :data, :descricao, :valor, :cd
   
-  named_scope :creditos, :conditions => {:cd=>'C'}
-  named_scope :debitos, :conditions => {:cd=>'D'}
+  scope :creditos, :conditions => {:cd=>'C'}
+  scope :debitos, :conditions => {:cd=>'D'}
 
   belongs_to :conta
   belongs_to :registravel, :polymorphic => true

@@ -1,0 +1,3 @@
+<%= form_for(:pagamento, :url => venda_pagamento_url(@venda, @pagamento), :html => {:method => :put}, :remote => true ) do |f| %>
+	<%= render :partial => 'form', :locals => {:f => f } %>
+<%- end -%>

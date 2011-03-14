@@ -9,7 +9,7 @@ class Venda < ActiveRecord::Base
     end
   end
   
-  has_many :pagamentos, :as => :registravel, :conditions => { :cd => "C" }
+  has_many :pagamentos, :class_name => "Registro", :as => :registravel, :conditions => { :cd => "C" }, :order => 'data asc'
 
   validates_presence_of :cliente_id, :if => lambda { |v| v.vendedor_id.blank? }
   validates_presence_of :vendedor_id, :if => lambda { |v| v.cliente_id.blank? }

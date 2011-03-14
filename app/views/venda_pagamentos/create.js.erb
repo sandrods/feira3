@@ -1,0 +1,5 @@
+$('#pag_itens').html('<%= render_partial_js("pagamento", :collection=>@venda.pagamentos) %>')
+
+$('.lt_pag').colorbox({transition:"none", opacity:0.5});
+
+$.colorbox.close();

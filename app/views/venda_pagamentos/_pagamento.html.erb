@@ -1,0 +1,6 @@
+<tr>
+	<td class="center"><%=link_to(l(pagamento.data), edit_venda_pagamento_url(@venda, pagamento), :remote => true, :class=>'lt_pag')  %></td>
+	<td class="right"><%= number_to_currency(pagamento.valor) %></td>
+	<td><%= pagamento.conta.try(:nome) %></td>
+	<td class="right"><%=link_to image_tag('trash.gif'), venda_pagamento_url(@venda, pagamento), :confirm => 'Tem certeza?', :method => :delete , :remote => true %></td>
+</tr>

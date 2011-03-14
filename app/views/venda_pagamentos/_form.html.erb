@@ -1,0 +1,23 @@
+<div id="pgto_box" class="box_form">
+	<h2>Adicionar Pagamento</h2>
+
+	<p>
+		<%= f.label(:data, 'Data') %>
+		<%= f.date_field(:data) %>
+		<%= error_message_on @pagamento, 'data' %>
+	</p>
+	<p>
+		<%= f.label(:valor, 'Valor') %>
+		<%= f.currency_field(:valor) %>
+		<%= error_message_on @pagamento, 'valor' %>
+	</p>
+	<p>
+		<%= f.label(:conta_id, 'Conta') %>
+		<%= f.select(:conta_id, Conta.to_select, :include_blank=>true) %>
+	</p>
+	<br class='clear' /><br/><br/>
+	<div class='buttons'>
+		<%= submit_tag "Salvar" %>
+	</div>
+
+</div>

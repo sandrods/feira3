@@ -18,6 +18,7 @@
     <td class='right'><%= number_to_currency(venda.total) %></td>
     
     <td><%=link_to 'Editar', edit_resource_url(venda), :class=>'link' %></td>
+    <td><%=link_to 'Itens', venda_itens_url(venda), :class=>'link' %></td>
     <td class='right'><%=link_to image_tag('trash.gif'), resource_url(venda), :confirm => 'Confirma Exclusão?', :method => :delete %></td>
   </tr>
   <% end %>

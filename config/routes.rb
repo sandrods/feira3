@@ -10,6 +10,7 @@ Feira3::Application.routes.draw do
     post 'edit', :on => :member 
     
     resources :itens, :controller => 'venda_itens'
+    resources :pagamentos, :controller => 'venda_pagamentos'
   end
 
   resources :sacolas do 
