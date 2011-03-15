@@ -1,4 +1,5 @@
 $('#pag_itens').html('<%= render_partial_js("pagamento", :collection=>@venda.pagamentos) %>')
+$('#pag_total').html('<%= render_partial_js("total") %>')
 
 $('.lt_pag').colorbox({transition:"none", opacity:0.5});
 

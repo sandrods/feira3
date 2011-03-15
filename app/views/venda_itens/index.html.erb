@@ -48,8 +48,8 @@
 	  <tbody id='pag_itens'>
 			<%= render :partial => 'venda_pagamentos/pagamento', :collection => @venda.pagamentos %>
 	  </tbody>
-	  <tfoot id='totais_pag'>
-
+	  <tfoot id='pag_total'>
+			<%= render :partial => 'venda_pagamentos/total' %>
 	  </tfoot>
 	</table>
 
