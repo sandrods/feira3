@@ -1,6 +1,5 @@
 <tr class="totais">
-	<td class="right"></td>
-	<td class="right">Total: &nbsp;&nbsp;<%= number_to_currency(@venda.pagamentos(true).present? ? @venda.pagamentos.sum(:valor) : 0) %></td>
+	<td class="right" colspan="2">Total: &nbsp;&nbsp;<%= number_to_currency(@venda.pagamentos(true).present? ? @venda.pagamentos.sum(:valor) : 0) %></td>
 	<td></td>
 	<td></td>
 </tr>

@@ -1,0 +1,5 @@
+<tr class="totais">
+	<td class="right" colspan="2">Total: &nbsp;&nbsp;<%= number_to_currency(@compra.pagamentos(true).present? ? @compra.pagamentos.sum(:valor) : 0) %></td>
+	<td></td>
+	<td></td>
+</tr>

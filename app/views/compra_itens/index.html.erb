@@ -13,20 +13,59 @@
 <%- end -%>
 
 <br/>
-<table class="lista small" cellpadding="0" cellspacing="0" width="70%">
-  <tr>
-	<th width='100px'>Ref.</th>
-	<th>Produto</th>
-	<th width='120px'>Cor.</th>
-	<th width='40px' class='center'>Tam.</th>
-	<th width='80px' class='right'>Valor</th>
-	<th width='30px'>&nbsp;</th>
-  </tr>
-  <tbody id='lista_itens'>
-	<%= render :partial => 'item', :collection => @itens %>
-  </tbody>
-  <tfoot id='totais_tr'>
-  	<%= render :partial => 'totais_tr' %>
-  </tfoot>
-</table>
+
+<div class='t15 colborder'>
+
+	<h3>Produtos</h3>
+	<table class="lista small" cellpadding="0" cellspacing="0" width="100%">
+	  <tr>
+		<th width='80px'>Ref.</th>
+		<th>Produto</th>
+		<th width='100px'>Cor.</th>
+		<th width='40px' class='center'>Tam.</th>
+		<th width='70px' class='right'>Valor</th>
+		<th width='30px'>&nbsp;</th>
+	  </tr>
+	  <tbody id='lista_itens'>
+		<%= render :partial => 'item', :collection => @itens %>
+	  </tbody>
+	  <tfoot id='totais_tr'>
+	  	<%= render :partial => 'totais_tr' %>
+	  </tfoot>
+	</table>
+
+</div>
+
+<div class='t8'>
+
+	<h3>Pagamentos</h3>
+	<table class="lista small" cellpadding="0" cellspacing="0" width="100%">
+	  <tr>
+		<th width='70px' class='center'>Data</th>
+		<th class='right'>Valor</th>
+		<th width='90px'>Conta</th>
+		<th width='20px'>&nbsp;</th>
+	  </tr>
+	  <tbody id='pag_itens'>
+			<%= render :partial => 'compra_pagamentos/pagamento', :collection => @compra.pagamentos %>
+	  </tbody>
+	  <tfoot id='pag_total'>
+			<%= render :partial => 'compra_pagamentos/total' %>
+	  </tfoot>
+	</table>
+
+	<%= cool_button("Adicionar Pagamento", new_compra_pagamento_url(@compra), :id => 'add_pag') %>
+</div>
+
 <br/>
+
+<script type="text/javascript">
+
+$('#add_pag').colorbox({transition:"none", opacity:0.5});
+$('.lt_pag').colorbox({transition:"none", opacity:0.5});
+
+</script>
+
+<style type="text/css" media="screen">
+	#pgto_box {	background-color: #f8f8f5; padding:15px 15px 6px 15px; width: 420px; text-align: left; border: 1px solid #ddd;}
+</style>

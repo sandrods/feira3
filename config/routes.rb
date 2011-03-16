@@ -13,6 +13,11 @@ Feira3::Application.routes.draw do
     resources :pagamentos, :controller => 'venda_pagamentos'
   end
 
+  resources :compras do
+    resources :itens, :controller => 'compra_itens'
+    resources :pagamentos, :controller => 'compra_pagamentos'
+  end
+
   resources :sacolas do 
     resources :itens, :controller => 'sacola_itens' do
       post 'devolve', :on => :collection 
@@ -28,10 +33,6 @@ Feira3::Application.routes.draw do
   resources :cores
 
   resources :itens
-
-  resources :compras do
-    resources :itens, :controller => 'compra_itens'
-  end
 
   resources :produtos do
     post 'lucro', :on => :collection

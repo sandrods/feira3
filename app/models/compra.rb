@@ -7,6 +7,8 @@ class Compra < ActiveRecord::Base
     end
   end
 
+  has_many :pagamentos, :class_name => "Registro", :as => :registravel, :conditions => { :cd => "D" }, :order => 'data asc'
+
   acts_as_br_date :data
   acts_as_br_float :desconto
 
