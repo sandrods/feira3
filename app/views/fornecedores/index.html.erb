@@ -19,7 +19,7 @@
   <%- @fornecedores.each do |fornecedor|%>
   <tr <%= cycle('', 'class="even"') %>>
     <td><%= fornecedor.nome %></td>
-    <td><%= check_box_tag 'ativo', fornecedor.id, fornecedor.ativo, :onclick => 'ativar(this.value, this.checked)' %></td>
+    <td><%= check_box_tag 'ativo', fornecedor.id, fornecedor.ativo, :class=>'chk_active' %></td>
 
     <td><%=link_to 'Editar', edit_resource_url(fornecedor), :class=>'link' %></td>
     <td><%=link_to image_tag('trash.gif'), resource_url(fornecedor), :confirm => 'Tem certeza?', :method => :delete %></td>
@@ -29,10 +29,9 @@
 <br/>
 
 <script language='javascript'>
-
-	function ativar(id, ativo) {
-		url = '/fornecedores/' + id + '/ativar?ativo=' + ativo;
-		new Ajax.Request(url, {asynchronous:true, evalScripts:true});
-		return false;
-	}
+	$('.chk_active').live('click', function(e) {
+		var check = e.target;
+		url = '/fornecedores/' + check.value + '/ativar?ativo=' + check.checked;
+		$.post(url);
+	});
 </script>
