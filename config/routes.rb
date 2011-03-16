@@ -46,7 +46,9 @@ Feira3::Application.routes.draw do
   resources :linhas
   resources :colecoes
 
-  resources :registros
+  resources :registros do
+    get 'mensal', :on => :collection
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

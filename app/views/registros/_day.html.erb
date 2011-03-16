@@ -1,0 +1,15 @@
+<%- if  @cal.this_month?(day) -%>
+<td id='<%="rec_drg_#{day}"%>'>
+	<%=div_day(day)%>
+	<div class="val c">
+		<%= valor_diario(day, @creditos[day]) %>		
+	</div>
+	<div class="val d">
+		<%= valor_diario(day, @debitos[day]) %>		
+	</div>
+</td>
+<%- else -%>
+<td class='inactive'>
+		<%=div_day(day)%>
+</td>
+<%- end -%>

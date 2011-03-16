@@ -19,6 +19,12 @@
       link: vendedores_path
 
 - title: Financeiro
+  subs:
+    - title: Diário
+      link: registros_path
+
+    - title: Mensal
+      link: mensal_registros_path
 
 - title: Vendas
   subs:

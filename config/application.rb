@@ -40,3 +40,5 @@ module Feira3
     config.filter_parameters += [:password]
   end
 end
+
+require 'calendar'

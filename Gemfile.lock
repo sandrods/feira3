@@ -46,6 +46,7 @@ GEM
       activesupport (= 3.0.4)
     activesupport (3.0.4)
     arel (2.0.9)
+    awesome_print (0.3.2)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -97,6 +98,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   dynamic_menus!
   inherited_resources (~> 1.2.1)
   jquery-rails
