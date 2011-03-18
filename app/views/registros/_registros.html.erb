@@ -1,0 +1,12 @@
+<h3><%= titulo %></h3>
+<table class="lista small drop" cellpadding="0" cellspacing="0" width="100%" data-conta="<%= conta %>">
+  <tr>
+		<th width="66px">Data</th>
+		<th>Descrição</th>
+		<th class="right">Valor</th>
+		<th width="17px">&nbsp;</th>
+  </tr>
+	<tbody id="tbody_<%= conta %>">
+	<%= render :partial=>'registro', :collection=>Registro.da_conta(conta) %>
+	</tbody>
+</table>

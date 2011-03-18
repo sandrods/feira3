@@ -1,0 +1,4 @@
+$('#tbody_<%= @old_conta %>').html("<%= render_partial_js('registro', :collection => @old_collection) %>")
+$('#tbody_<%= @new_conta %>').html("<%= render_partial_js('registro', :collection => @new_collection) %>")
+$(".drag-wrapper").show();
+set_dd();

@@ -1,0 +1,6 @@
+<tr>
+  <td><%= link_to(registro.data.try(:strftime, '%d/%m/%Y'), edit_registro_path(registro), :class => "edit_reg" )%></td>
+  <td><%= registro.descricao %></td>
+  <td class='right <%= registro.cd %>' ><%= number_to_currency(registro.valor_cd) %></td>
+	<td class='right'><%= image_tag("money_#{registro.cd}.png", :class=>'drag', :'reg-id' => registro.id) %></td>
+</tr>

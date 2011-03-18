@@ -75,10 +75,10 @@ table.small {
 }
 table.small td{
 	font-size:1.0em;
-	padding:5px;
+	padding:3px 5px;
 }
 table.small th{
-	padding:5px;
+	padding:3px 5px;
 	font-size:1.0em;
 }
 table.small a{

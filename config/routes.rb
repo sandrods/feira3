@@ -48,6 +48,7 @@ Feira3::Application.routes.draw do
 
   resources :registros do
     get 'mensal', :on => :collection
+    post 'transfere', :on => :member 
   end
 
   # The priority is based upon order of creation:

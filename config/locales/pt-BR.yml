@@ -85,6 +85,7 @@ pt-BR:
         format: '%u %n'
         separator: ','
         delimiter: '.'
+        negative_format: '(%u %n)'
     percentage:
       format:
         delimiter: '.'

@@ -64,3 +64,17 @@ table.light th {
 table.light td {
 	border-bottom: 1px #bbb dotted;
 }
+
+td.C {
+	color: #008040;
+}
+td.D {
+	color: #F00;
+}
+
+.drag-wrapper {
+	width: 17px;
+}
+.hidden {
+	display: none;
+}

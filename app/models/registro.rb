@@ -5,10 +5,17 @@ class Registro < ActiveRecord::Base
   
   validates_presence_of :data, :descricao, :valor, :cd
   
-  scope :creditos, :conditions => {:cd=>'C'}
-  scope :debitos, :conditions => {:cd=>'D'}
+  default_scope order(:data)
+
+  scope :creditos, where(:cd=>'C')
+  scope :debitos,  where(:cd=>'D')
+
+  scope :da_conta, lambda {|conta| where(:conta_id => conta)}
 
   belongs_to :conta
   belongs_to :registravel, :polymorphic => true
 
+  def valor_cd
+    valor * (cd=="D" ? -1 : 1)
+  end
 end

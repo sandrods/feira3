@@ -3,32 +3,41 @@
 	<%= cool_button('Novo Registro', new_resource_url) %>
 <% end %>
 
-<div class="t9 colborder">
-	
-	<table class="lista light" cellpadding="0" cellspacing="0" width="100%">
-	  <tr>
-			<th>Data</th>
-			<th>Descrição</th>
-			<th>Valor</th>
-			<th>&nbsp;</th>
-	  </tr>
-		<%= render :partial=>'registro', :collection=>@creditos %>
-	</table>
-
+<div class="t11 prepend-0">
+	<%= render :partial => "registros", :locals => { :titulo => "Banco", :conta => Conta::BANCO }  %>
 </div>
 
-<div class="t9">
-	
-	<table class="lista light" cellpadding="0" cellspacing="0" width="100%">
-	  <tr>
-			<th>Data</th>
-			<th>Descrição</th>
-			<th>Valor</th>
-			<th>&nbsp;</th>
-	  </tr>
-		<%= render :partial=>'registro', :collection=>@debitos %>
-	</table>
-
+<div class="t11 prepend-1">
+	<%= render :partial => "registros", :locals => { :titulo => "Caixa", :conta => Conta::CAIXA }  %>
 </div>
 
-<br/>
+<br style="clear:both"/>
+<br/><br/>
+
+<div class="t11 prepend-0">
+	<%= render :partial => "registros", :locals => { :titulo => "Contas a Pagar", :conta => Conta::CPAGAR }  %>
+</div>
+
+<div class="t11 prepend-1">
+	<%= render :partial => "registros", :locals => { :titulo => "Contas a Receber", :conta => Conta::CRECEB }  %>
+</div>
+
+<script language="javascript">
+
+function set_dd() {
+	$(".drag").draggable({
+		revert: 'invalid'
+	});
+	$(".drop").droppable({
+		drop: function(e, ui) {
+			url = "/registros/" + ui.draggable.attr('reg-id') + "/transfere?conta_id=" + $(this).attr('data-conta');
+			$.post(url)
+		}
+	});
+}
+
+	set_dd();
+
+	$('.edit_reg').colorbox();
+
+</script>

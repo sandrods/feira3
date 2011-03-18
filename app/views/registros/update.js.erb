@@ -1,0 +1,3 @@
+$('#tbody_<%= @registro.conta_id %>').html("<%= render_partial_js('registro', :collection => Registro.da_conta(@registro.conta_id)) %>")
+$.colorbox.close();
+$('.edit_reg').colorbox();
