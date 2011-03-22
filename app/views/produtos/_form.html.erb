@@ -1,5 +1,5 @@
 
-<div class="form">
+<div class="form t17">
 
   <div class="linha first">
     <div class="t5">
@@ -8,15 +8,15 @@
     <%= error_message_on @produto, :colecao_id %>
     </div>
 
-    <div class="t8">
+    <div class="t7">
     <%= f.label :fornecedor_id, "Fornecedor" %>
-    <%= f.select :fornecedor_id, Fornecedor.to_select, { :include_blank => true }, :class=>'t8 bold' %>
+    <%= f.select :fornecedor_id, Fornecedor.to_select, { :include_blank => true }, :class=>'t7 bold' %>
     <%= error_message_on @produto, 'fornecedor_id' %>
     </div>
 
-    <div class="t11">
+    <div class="t4">
     <%= f.label :linha_id, "Linha" %>
-    <%= f.select :linha_id, Linha.to_select, { :include_blank => true }, :class=>'t5' %>
+    <%= f.select :linha_id, Linha.to_select, { :include_blank => true }, :class=>'t4' %>
     <%= error_message_on @produto, 'linha_id' %>
     </div>
 
@@ -29,12 +29,16 @@
     <%= error_message_on @produto, 'tipo_id' %>
     </div>
 
-    <div class="t8">
+    <div class="t11">
     <%= f.label :ref, "Referência" %>
-    <%= f.text_field :ref, :class=>'t8 bold' %>
+    <%= f.text_field :ref, :class=>'t11 bold' %>
     <%= error_message_on @produto, 'ref' %>
     </div>
 
+  </div>
+
+  <div class="linha">
+    <div class="t5">&nbsp;</div>
     <div class="t3">
     <%= f.label :custo %>
     <%= f.currency_field :custo, :class=>'t3' %>
@@ -69,3 +73,18 @@
   $('#produto_custo_to_form').change(get_lucro);
   $('#produto_valor_to_form').change(get_lucro);
 </script>
+
+
+<div class="t7">
+	<h3>Etiquetas</h3>
+	
+	<table class="lista small light" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<th width="140px">Cor</th>
+			<th>Tamanho</th>
+			<th>&nbsp;</th>
+		</tr>
+		<%- @produto.etiquetas.each do |etq| -%>
+		<%- end %>
+	</table>
+</div>

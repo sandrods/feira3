@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  produto_id: 
+  tamanho_id: 
+  cor_id: 1
+
+two:
+  produto_id: 
+  tamanho_id: 
+  cor_id: 1

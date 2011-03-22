@@ -2,20 +2,33 @@ class ProdutosController < InheritedResources::Base
 
   def update
     update! do |success, failure|
-      success.html { redirect_to collection_url }
+      success.html {
+        case params[:commit]
+        when 'Salvar'
+          redirect_to collection_url
+        when 'Salvar e Novo'
+          redirect_to new_resource_url(:colecao_id => @produto.colecao_id,
+                                        :fornecedor_id =>@produto.fornecedor_id,
+                                        :linha_id =>@produto.linha_id,
+                                        :tipo_id =>@produto.tipo_id)
+        end
+      }
     end
   end
 
   def create
     create! do |success, failure|
       success.html {
-        if params[:commit] == 'Salvar'
+        case params[:commit]
+        when 'Salvar'
           redirect_to collection_url
-        else
+        when 'Salvar e Novo'
           redirect_to new_resource_url(:colecao_id => @produto.colecao_id,
                                         :fornecedor_id =>@produto.fornecedor_id,
                                         :linha_id =>@produto.linha_id,
                                         :tipo_id =>@produto.tipo_id)
+        when 'Salvar e Editar'
+          redirect_to edit_resource_url(@produto)
         end
       }
     end
