@@ -1,5 +1,5 @@
 
-<div class="form t17">
+<div class="form t16">
 
   <div class="linha first">
     <div class="t5">
@@ -14,7 +14,7 @@
     <%= error_message_on @produto, 'fornecedor_id' %>
     </div>
 
-    <div class="t4">
+    <div class="t4 last">
     <%= f.label :linha_id, "Linha" %>
     <%= f.select :linha_id, Linha.to_select, { :include_blank => true }, :class=>'t4' %>
     <%= error_message_on @produto, 'linha_id' %>
@@ -29,9 +29,9 @@
     <%= error_message_on @produto, 'tipo_id' %>
     </div>
 
-    <div class="t11">
+    <div class="t11 last">
     <%= f.label :ref, "Referência" %>
-    <%= f.text_field :ref, :class=>'t11 bold' %>
+    <%= f.text_field :ref, :class=>'t10 bold' %>
     <%= error_message_on @produto, 'ref' %>
     </div>
 
@@ -51,7 +51,7 @@
     <%= error_message_on @produto, 'valor' %>
     </div>
 
-    <div class="t5">
+    <div class="t5 last">
     <label>Lucro/Rentabilidade</label>
     <p id='lucro'><%= render :partial => 'lucro' %></p>
     </div>
@@ -75,7 +75,7 @@
 </script>
 
 
-<div class="t7">
+<div class="prepend-1 t7">
 	<h3>Etiquetas</h3>
 	
 	<table class="lista small light" width="100%" cellpadding="0" cellspacing="0">
@@ -84,7 +84,6 @@
 			<th>Tamanho</th>
 			<th>&nbsp;</th>
 		</tr>
-		<%- @produto.etiquetas.each do |etq| -%>
-		<%- end %>
+		<%= render :partial => 'etiqueta', :collection => @produto.etiquetas %>
 	</table>
 </div>

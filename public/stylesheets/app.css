@@ -57,7 +57,7 @@ table.light {
 }
 
 table.light th {
-	background-color: white;
+	background-color: #f8f8f5;
 	border-bottom: 1px #bbb dotted;		
 }
 
@@ -77,4 +77,13 @@ td.D {
 }
 .hidden {
 	display: none;
+}
+a.del {
+	display:block;
+	width: 16px;
+	background: url('../images/inline-delete.png');
+}
+a.del:hover {
+	background: url('../images/inline-delete.png') 17px;
+	text-decoration: none;
 }
