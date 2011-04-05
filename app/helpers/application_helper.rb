@@ -10,7 +10,8 @@ module ApplicationHelper
     icon = opts.delete(:icon)||'add'
     ultimo = opts.delete(:ultimo)
 
-    opts[:class] = 'button'
+    opts[:class] = "" unless opts[:class]
+    opts[:class] << ' button'
 
     ic = (icon == '') ? '' : "<b class='icon #{icon}'></b>" 
     ret = link_to("<span>#{ic}#{text}</span>".html_safe, link_opts, opts)
@@ -22,7 +23,8 @@ module ApplicationHelper
     icon = opts.delete(:icon)||'add'
     ultimo = opts.delete(:ultimo)
 
-    opts[:class] = 'button'
+    opts[:class] = "" unless opts[:class]
+    opts[:class] << ' button'
 
     ic = (icon == '') ? '' : "<b class='icon #{icon}'></b>" 
     ret = link_to_function("<span>#{ic}#{text}</span>".html_safe, function, opts)

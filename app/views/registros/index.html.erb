@@ -1,6 +1,6 @@
 <% content_for :title do %>
 	<h1><strong>Registros</strong></h1>
-	<%= cool_button('Novo Registro', new_resource_url) %>
+	<%= cool_button('Novo Registro', new_resource_url, :class => 'colorbox' ) %>
 <% end %>
 
 <div class="t11 prepend-0">
@@ -22,6 +22,8 @@
 	<%= render :partial => "registros", :locals => { :titulo => "Contas a Receber", :conta => Conta::CRECEB }  %>
 </div>
 
+<br style="clear:both"/>
+
 <script language="javascript">
 
 function set_dd() {
@@ -39,5 +41,6 @@ function set_dd() {
 	set_dd();
 
 	$('.edit_reg').colorbox();
+	$('.colorbox').colorbox();
 
 </script>

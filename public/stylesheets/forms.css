@@ -65,6 +65,7 @@ div.buttons {
 	padding:6px;
 	border-top:2px dotted #b6cddb;
 	font-size:1.1em;
+	position: relative;
 
 }
 div.buttons a{
@@ -79,6 +80,12 @@ div.buttons input {
     font-size: 1.1em;  
 }
 
+div.buttons div.link{
+	position: absolute;
+	right: 10px;
+	top:5px;
+	font-weight: bold;
+}
 .formError {
 	margin-left: 8px;
 	color: red;

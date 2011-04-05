@@ -1,6 +1,7 @@
 	<div class="form">
 
 		<div class="linha first">
+
 			<div class="t3">
 				<%= f.label :data, "Data" %>			
 				<%= f.date_field :data, :class=>'t3' %>
@@ -11,8 +12,8 @@
 				<%= f.text_field :descricao, :class=>'t9'%>
 				<%= error_message_on @registro, 'descricao' %>			
 			</div>
-			
-			<br class="clear"/>
+
+			<br/>
 
 			<div class="t4">
 				<%= f.label :valor, "Valor" %>
@@ -20,7 +21,7 @@
 				<%= error_message_on @registro, 'valor' %>
 			</div>
 
-			<div class="t6">
+			<div class="t4">
 
 				<br/>
 				<%= f.radio_button :cd, "C" %>
@@ -30,6 +31,12 @@
 				<%= f.label :cd, "Débito", :value=>"D", :class=>'inline' %>
 				
 				<%= error_message_on @registro, 'cd' %>
+			</div>
+
+			<div class="t4">
+				<%= f.label :conta, "Conta" %>
+				<%= f.collection_select :conta_id, Conta.all, :id, :nome, :class=>'t4' %>
+				<%= error_message_on @registro, 'conta' %>
 			</div>
 
 		</div>

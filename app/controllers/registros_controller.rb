@@ -30,10 +30,32 @@ class RegistrosController < InheritedResources::Base
     end
   end
 
+  def new
+    new! do |success, failure|
+      success.html { render :layout => nil  }
+    end
+  end
+
   def update
+
+    @registro = Registro.find params[:id]
+
+    @old_conta = @registro.conta_id
+
     update! do |success, failure|
       success.js { render :action => "update" }
     end
   end
 
+  def create
+    create! do |success, failure|
+      success.js { render :action => "create" }
+    end
+  end
+
+  def destroy
+    destroy! do |success, failure|
+      success.js { render :action => "create" }
+    end
+  end
 end

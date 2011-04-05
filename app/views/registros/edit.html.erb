@@ -3,7 +3,7 @@
   <%= render :partial => "form", :locals => { :f => f } %>
 
 	<div class="buttons clear">
-		<%= f.submit 'Salvar' %>
+		<%= f.submit 'Salvar' %> <div class="link"><%= link_to("Excluir este Registro", registro_url(@registro), :method => :delete, :remote=>true, :confirm => "Confirma Exclusão?" ) %>
 	</div>
 <% end %>
 

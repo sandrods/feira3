@@ -1,6 +1,3 @@
 $('#tbody_<%= @registro.conta_id %>').html("<%= render_partial_js('registro', :collection => Registro.da_conta(@registro.conta_id)) %>")
-<%- if @registro.conta_id != @old_conta -%>
-	$('#tbody_<%= @old_conta %>').html("<%= render_partial_js('registro', :collection => Registro.da_conta(@old_conta)) %>")
-<%- end -%>
 $.colorbox.close();
 $('.edit_reg').colorbox();

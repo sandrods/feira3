@@ -1,13 +1,8 @@
-<% content_for :title do %>
-	<h1><strong>Novo Registro</strong></h1>
-<% end %>
-
-<%= error_messages_for :registro %>
-
-<%= form_for(:registro, :url => collection_url) do |f| %>
+<h3><strong>Novo Registro</strong></h3> <br/>
+<%= form_for(@registro, :remote => true) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
 
 	<div class="buttons clear">
-		<%= f.submit 'Salvar' %> ou <%= link_to 'Voltar para Lista', collection_url, :class=>'link' %>
+		<%= f.submit 'Salvar' %>
 	</div>
 <% end %>
