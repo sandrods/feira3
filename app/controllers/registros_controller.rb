@@ -1,4 +1,4 @@
-class RegistrosController < InheritedResources::Base
+class RegistrosController < ApplicationController
 
   def index
   end
@@ -25,15 +25,13 @@ class RegistrosController < InheritedResources::Base
   end
 
   def edit
-    edit! do |success, failure|
-      success.html { render :layout => nil  }
-    end
+    @registro = Registro.find params[:id]
+    render :layout => nil
   end
 
   def new
-    new! do |success, failure|
-      success.html { render :layout => nil  }
-    end
+    @registro = Registro.new
+    render :layout => nil
   end
 
   def update
@@ -42,20 +40,19 @@ class RegistrosController < InheritedResources::Base
 
     @old_conta = @registro.conta_id
 
-    update! do |success, failure|
-      success.js { render :action => "update" }
-    end
+    @ok = @registro.update_attributes(params[:registro])
+
   end
 
   def create
-    create! do |success, failure|
-      success.js { render :action => "create" }
-    end
+    @registro = Registro.new(params[:registro])
+    @ok = @registro.save
   end
 
   def destroy
-    destroy! do |success, failure|
-      success.js { render :action => "create" }
-    end
+    @registro = Registro.find params[:id]
+    @ok = @registro.destroy
+    render :action => :create
   end
+
 end
