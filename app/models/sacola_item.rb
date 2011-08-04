@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class SacolaItem < ActiveRecord::Base
 
   belongs_to :sacola

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module ActsAsBr
   
   def self.included(base)
