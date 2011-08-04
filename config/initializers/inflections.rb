@@ -17,6 +17,9 @@ ActiveSupport::Inflector.inflections do |inflect|
    inflect.plural(/^(.*)m$/i, '\1ns')
    inflect.singular(/^(.*)ns$/i, '\1m')
 
+   inflect.plural(/^(.*)a$/i, '\1as')
+   inflect.singular(/^(.*)as$/i, '\1a')
+
    inflect.plural(/^(.*)r$/i, '\1res')
    inflect.singular(/^(.*)res$/i, '\1r')
 

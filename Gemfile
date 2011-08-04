@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+gem 'rails', '~> 3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -31,7 +31,7 @@ gem 'sqlite3'
 # end
 
 gem 'inherited_resources', '~> 1.2.1'
-gem 'meta_search', :git => "git://github.com/ernie/meta_search.git"
+gem 'meta_search', '~> 1.0.5'
 gem 'kaminari'
 gem 'jquery-rails'
 gem 'dynamic_menus', :git => 'git://github.com/sandrods/dynamic_menus.git'
